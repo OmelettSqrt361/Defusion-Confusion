@@ -1,0 +1,2 @@
+player charcater sprite size: 256
+brush stroke size: 10px
