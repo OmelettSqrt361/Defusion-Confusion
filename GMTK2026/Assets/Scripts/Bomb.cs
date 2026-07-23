@@ -14,6 +14,8 @@ public class Bomb : MonoBehaviour
     public Slider slider;
     public TextMeshProUGUI countDown;
 
+    public TextMeshProUGUI lCDScreen;
+
 
     void Start()
     {
@@ -27,8 +29,12 @@ public class Bomb : MonoBehaviour
         showTimer = Mathf.RoundToInt(timer);
         percent = showTimer / initTimer;
 
+
+        string lcdScreen = $"{showTimer/60}:" + (showTimer%60).ToString("D2");
+
         slider.value = percent;
         countDown.text = showTimer.ToString();
+        lCDScreen.text = lcdScreen; 
 
         if(timer <= 0)
         {
