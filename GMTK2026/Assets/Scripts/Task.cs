@@ -8,21 +8,27 @@ public class Task : MonoBehaviour
     // Object interaction
     bool playerNear = false;
     GameObject player;
-    public Animator animator;
+    Animator animator;
 
     // Bomb Things
     public bool isBomb;
     Bomb b;
 
     // Task menu interaction
-    public GameManager gm;
-
-    public CinemachineVirtualCamera mainCam;
-    public CinemachineVirtualCamera taskCam;
+    GameManager gm;
+    CinemachineVirtualCamera mainCam;
+    CinemachineVirtualCamera taskCam;
     CinemachineVirtualCamera zoomCam;
+
+
+    GameObject[] zoomButtons;
     public GameObject taskMenu;
     bool isRunning = false;
     bool isZoomed = false;
+
+    // Tool usage
+    public string[] toolNames;
+    public GameObject[] toolsToActivate;
 
     void Start()
     {
@@ -30,6 +36,11 @@ public class Task : MonoBehaviour
         {
             b = this.gameObject.GetComponent<Bomb>();
         }
+        mainCam = GameObject.FindWithTag("MainVCamera").GetComponent<CinemachineVirtualCamera>();
+        taskCam = gameObject.GetComponentInChildren<CinemachineVirtualCamera>();
+        animator = gameObject.GetComponent<Animator>();
+        zoomButtons = GetChildrenWithTag(taskMenu, "Zoom");
+        gm = GameObject.FindWithTag("GameController").GetComponent<GameManager>();
     }
 
 
@@ -80,6 +91,17 @@ public class Task : MonoBehaviour
         taskCam.Priority = 1;
         mainCam.Priority = 0;
         gm.HideOverlayMenu();
+
+        // tool handling
+        for (int i = 0; i < toolNames.Length; i++) 
+        { 
+            if(toolNames[i] == player.GetComponent<PlayerControler>().attribute)
+            {
+                Debug.Log(toolNames[i]);
+                toolsToActivate[i].SetActive(true);
+            }
+        }
+
     }
 
     public void TurnOff()
@@ -90,6 +112,13 @@ public class Task : MonoBehaviour
         taskCam.Priority = 0;
         mainCam.Priority = 1;
         gm.ShowOverlayMenu();
+
+        // hide tools
+        foreach (var tool in toolsToActivate)
+        {
+            tool.SetActive(false);
+        }
+
     }
 
     public void ZoomIn(CinemachineVirtualCamera newCam)
@@ -98,6 +127,11 @@ public class Task : MonoBehaviour
         taskCam.Priority = 0;
         zoomCam = newCam;
         isZoomed = true;
+
+        foreach (var button in zoomButtons)
+        {
+            button.SetActive(false);
+        }
     }
 
     public void ZoomOut()
@@ -105,5 +139,25 @@ public class Task : MonoBehaviour
         zoomCam.Priority = 0;
         taskCam.Priority = 1;
         isZoomed = false;
+
+        foreach (var button in zoomButtons)
+        {
+            button.SetActive(true);
+        }
+    }
+
+    // Helper functions
+    GameObject[] GetChildrenWithTag(GameObject parent, string tag)
+    {
+        List<GameObject> matchingChildren = new List<GameObject>();
+        Transform[] allChildren = parent.GetComponentsInChildren<Transform>(true);
+        foreach (Transform child in allChildren)
+        {
+            if (child.CompareTag(tag))
+            {
+                matchingChildren.Add(child.gameObject);
+            }
+        }
+        return matchingChildren.ToArray();
     }
 }

@@ -8,37 +8,46 @@ public class PlayerControler : MonoBehaviour
 
 
     // movement
-    public Rigidbody2D rb;
-    public float runVelocity;
-    float velocity;
+    Rigidbody2D rb;
+    public float runVelocity; // sets the max speed
+    float velocity; // current velocity
+
     float horizontal;
     float vertical;
 
-    float windup;
-    public float windupTime;
+    float windup; // current windup
+    public float windupTime; // tiny window to not start running immediately
     Vector2 moveDir;
 
     //animation
-    public Animator animator;
+    Animator animator;
 
 
     // items
+    [HideInInspector]
     public List<GameObject> itemsNear = new List<GameObject>();
     public Transform handLoc;
+    [HideInInspector]
     public GameObject item;
     bool holdingItem;
+
+    
+    public string attribute;
 
     public float maxHoldBuffer; // tiny window, where you can't drop the item
     float holdBuffer;
 
     // tasks
+    [HideInInspector]
     public bool taskNear;
+    [HideInInspector]
     public bool doingTask;
 
 
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -111,6 +120,7 @@ public class PlayerControler : MonoBehaviour
     {
         Debug.Log("Dropped the item");
         item.GetComponent<Item>().ItemDropped();
+        attribute = "";
         item = null;
         holdingItem = false;
     }
@@ -133,12 +143,16 @@ public class PlayerControler : MonoBehaviour
             }
         }
 
+        // set item as held
         item = nearestItem;
+        attribute = item.GetComponent<Item>().attribute;
         item.GetComponent<Item>().ItemGrabbed();
         holdingItem = true;
         holdBuffer = maxHoldBuffer;
     }
 
+
+    // manage proximity grabbing
     public void ItemAddProximity(GameObject newItem)
     {
         itemsNear.Add(newItem);

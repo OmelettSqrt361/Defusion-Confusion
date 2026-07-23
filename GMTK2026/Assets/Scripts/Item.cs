@@ -5,11 +5,14 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
 
+    // held or near checking
     bool playerNear = false;
     public bool held = false;
     GameObject player;
-    public SpriteRenderer sr;
 
+    // propreties
+    public SpriteRenderer sr;
+    public string attribute;
     public Animator animator;
 
     void Update()
