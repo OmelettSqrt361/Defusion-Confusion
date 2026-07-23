@@ -1,2 +1,4 @@
 player charcater sprite size: 256
 brush stroke size: 10px
+
+due to programming shenanigans, task hitboxes cannot collide

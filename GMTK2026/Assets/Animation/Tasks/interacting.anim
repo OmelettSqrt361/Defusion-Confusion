@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: held
+  m_Name: interacting
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -23,31 +23,20 @@ AnimationClip:
       - serializedVersion: 3
         time: 0
         value: 0
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
         weightedMode: 0
         inWeight: 0
         outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_IsActive
-    path: Pickup
-    classID: 1
-    script: {fileID: 0}
-  m_PPtrCurves:
-  - curve:
-    - time: 0
-      value: {fileID: 7766721758921934520, guid: 16b5ce5565a09a9468a56803d03470d2, type: 3}
-    - time: 0.2
-      value: {fileID: 6388603711314454826, guid: 16b5ce5565a09a9468a56803d03470d2, type: 3}
-    - time: 0.41666666
-      value: {fileID: 7766721758921934520, guid: 16b5ce5565a09a9468a56803d03470d2, type: 3}
-    attribute: m_Sprite
-    path: 
+    attribute: m_Color.a
+    path: interact
     classID: 212
     script: {fileID: 0}
+  m_PPtrCurves: []
   m_SampleRate: 60
   m_WrapMode: 0
   m_Bounds:
@@ -56,29 +45,19 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 1177697483
-      attribute: 2086281974
-      script: {fileID: 0}
-      typeID: 1
-      customType: 0
-      isPPtrCurve: 0
-    - serializedVersion: 2
-      path: 0
-      attribute: 0
+      path: 569745642
+      attribute: 304273561
       script: {fileID: 0}
       typeID: 212
-      customType: 23
-      isPPtrCurve: 1
-    pptrCurveMapping:
-    - {fileID: 7766721758921934520, guid: 16b5ce5565a09a9468a56803d03470d2, type: 3}
-    - {fileID: 6388603711314454826, guid: 16b5ce5565a09a9468a56803d03470d2, type: 3}
-    - {fileID: 7766721758921934520, guid: 16b5ce5565a09a9468a56803d03470d2, type: 3}
+      customType: 0
+      isPPtrCurve: 0
+    pptrCurveMapping: []
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.43333334
+    m_StopTime: 0
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -100,18 +79,18 @@ AnimationClip:
       - serializedVersion: 3
         time: 0
         value: 0
-        inSlope: Infinity
-        outSlope: Infinity
-        tangentMode: 103
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
         weightedMode: 0
         inWeight: 0
         outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_IsActive
-    path: Pickup
-    classID: 1
+    attribute: m_Color.a
+    path: interact
+    classID: 212
     script: {fileID: 0}
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0

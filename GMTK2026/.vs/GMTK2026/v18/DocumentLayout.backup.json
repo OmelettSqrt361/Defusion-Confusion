@@ -3,12 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\jk\\Coding\\games\\GMTK2026\\GMTK2026\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jk\\Coding\\games\\GMTK2026\\GMTK2026\\Assets\\Scripts\\Item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jk\\Coding\\games\\GMTK2026\\GMTK2026\\Assets\\Scripts\\Bomb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\Bomb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jk\\Coding\\games\\GMTK2026\\GMTK2026\\Assets\\Scripts\\PlayerControler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scripts\\PlayerControler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9F114C9F-B7FA-09E0-3238-45BE10E6065D}|Assembly-CSharp.csproj|c:\\users\\jk\\coding\\games\\gmtk2026\\gmtk2026\\assets\\scripts\\task.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F114C9F-B7FA-09E0-3238-45BE10E6065D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\task.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F114C9F-B7FA-09E0-3238-45BE10E6065D}|Assembly-CSharp.csproj|C:\\Users\\jk\\Coding\\games\\GMTK2026\\GMTK2026\\assets\\scripts\\playercontroler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F114C9F-B7FA-09E0-3238-45BE10E6065D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playercontroler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F114C9F-B7FA-09E0-3238-45BE10E6065D}|Assembly-CSharp.csproj|C:\\Users\\jk\\Coding\\games\\GMTK2026\\GMTK2026\\assets\\scripts\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F114C9F-B7FA-09E0-3238-45BE10E6065D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,33 +26,57 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Item.cs",
-              "DocumentMoniker": "C:\\Users\\jk\\Coding\\games\\GMTK2026\\GMTK2026\\Assets\\Scripts\\Item.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Item.cs",
-              "ToolTip": "C:\\Users\\jk\\Coding\\games\\GMTK2026\\GMTK2026\\Assets\\Scripts\\Item.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Item.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "Task.cs",
+              "DocumentMoniker": "C:\\Users\\jk\\Coding\\games\\GMTK2026\\GMTK2026\\Assets\\Scripts\\Task.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Task.cs",
+              "ToolTip": "C:\\Users\\jk\\Coding\\games\\GMTK2026\\GMTK2026\\Assets\\Scripts\\Task.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Task.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAgwF0AAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-22T20:03:34.587Z",
+              "WhenOpened": "2026-07-23T08:07:34.959Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "Bomb.cs",
+              "DocumentMoniker": "C:\\Users\\jk\\Coding\\games\\GMTK2026\\GMTK2026\\Assets\\Scripts\\Bomb.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Bomb.cs",
+              "ToolTip": "C:\\Users\\jk\\Coding\\games\\GMTK2026\\GMTK2026\\Assets\\Scripts\\Bomb.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Bomb.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAowA4AAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-23T08:25:13.228Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "PlayerControler.cs",
               "DocumentMoniker": "C:\\Users\\jk\\Coding\\games\\GMTK2026\\GMTK2026\\Assets\\Scripts\\PlayerControler.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerControler.cs",
               "ToolTip": "C:\\Users\\jk\\Coding\\games\\GMTK2026\\GMTK2026\\Assets\\Scripts\\PlayerControler.cs",
               "RelativeToolTip": "Assets\\Scripts\\PlayerControler.cs",
-              "ViewState": "AgIAAEcAAAAAAAAAAAAwwDwAAAA3AAAAAAAAAA==",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAowDgAAABIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-22T19:13:19.332Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-07-23T08:07:34.963Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Item.cs",
+              "DocumentMoniker": "C:\\Users\\jk\\Coding\\games\\GMTK2026\\GMTK2026\\Assets\\Scripts\\Item.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Item.cs",
+              "ToolTip": "C:\\Users\\jk\\Coding\\games\\GMTK2026\\GMTK2026\\Assets\\Scripts\\Item.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Item.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAdAAAAAAAAAA==",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACySURBVDhPYxgFEHDjxY3/Xqvc/wtO5P1vvdji/40X1/9DpcBg3rm5cD4yGw6sF5v/bz7UAJZoAtIgw8ASUAAyGMpEYYMAI4gACb7P/wxmg4DuXM3/l5OvM4JsKz5cABVFBa6y7gyrgtZA9KCbig7wuYAJSpMNsBoA8gKIBnkBZiOIRmaHrQtBuMQTGGjNhxvBAk1AGhQTYAkoQHY2MhsOQNFotcgcbIPnSjfSo3FEAwYGAA95Yu3hOJS9AAAAAElFTkSuQmCC",
+              "WhenOpened": "2026-07-23T08:07:34.968Z"
             }
           ]
         }
