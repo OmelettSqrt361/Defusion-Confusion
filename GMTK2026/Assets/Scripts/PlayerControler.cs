@@ -11,6 +11,7 @@ public class PlayerControler : MonoBehaviour
     Rigidbody2D rb;
     public float runVelocity; // sets the max speed
     float velocity; // current velocity
+    public float runVelocityIncrease; // for adding velocity when time is low
 
     float horizontal;
     float vertical;
@@ -43,11 +44,20 @@ public class PlayerControler : MonoBehaviour
     [HideInInspector]
     public bool doingTask;
 
+    public AudioClip pickup;
+    public AudioClip putDown;
+    AudioSource audioS;
+
+    GameManager gm;
+
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        audioS = GetComponent<AudioSource>();
+        gm = GameObject.FindWithTag("GameController").GetComponent<GameManager>();
+
     }
 
     // Update is called once per frame
@@ -72,7 +82,7 @@ public class PlayerControler : MonoBehaviour
             else if (windup > 0)
             {
                 windup = windup - Time.deltaTime;
-                velocity = runVelocity * ((windupTime - windup) / windupTime);
+                velocity = (runVelocity + (runVelocityIncrease * gm.currentBombFactor)) * ((windupTime - windup) / windupTime);
             }
             moveDir = moveDir * velocity;
         }
@@ -121,6 +131,8 @@ public class PlayerControler : MonoBehaviour
         Debug.Log("Dropped the item");
         item.GetComponent<Item>().ItemDropped();
         attribute = "";
+
+        audioS.PlayOneShot(putDown);
         item = null;
         holdingItem = false;
     }
@@ -147,6 +159,9 @@ public class PlayerControler : MonoBehaviour
         item = nearestItem;
         attribute = item.GetComponent<Item>().attribute;
         item.GetComponent<Item>().ItemGrabbed();
+
+        audioS.PlayOneShot(pickup);
+
         holdingItem = true;
         holdBuffer = maxHoldBuffer;
     }

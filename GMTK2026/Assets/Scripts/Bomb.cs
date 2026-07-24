@@ -10,7 +10,8 @@ public class Bomb : MonoBehaviour
     // time tracking
     public float initTimer;
     float timer;
-    int showTimer;
+    [HideInInspector]
+    public int showTimer;
     float percent;
 
 

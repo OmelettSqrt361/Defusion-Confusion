@@ -13,12 +13,16 @@ public class Door : MonoBehaviour
 
     public Transform teleportDest;
 
+    AudioSource audioS;
+    public AudioClip teleportationSfx;
+
 
     void Start()
     {
         lockTask = GetComponent<Task>();
         animator = GetComponent<Animator>();
         bScreen = GameObject.FindWithTag("BlackScreen").GetComponent<BlackScreen>();
+        audioS = GetComponent<AudioSource>();
         if (!isLocked)
         {
             Unlock();
@@ -31,6 +35,7 @@ public class Door : MonoBehaviour
         isNear = lockTask.playerNear;
         if (isNear == true && Input.GetKeyDown(KeyCode.X) && !isLocked)
         {
+            audioS.PlayOneShot(teleportationSfx);
             bScreen.TurnOn(blackScreenTime);
             lockTask.player.transform.position = teleportDest.position;
             Debug.Log("Teleport");

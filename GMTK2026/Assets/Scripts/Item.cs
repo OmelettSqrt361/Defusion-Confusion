@@ -17,7 +17,21 @@ public class Item : MonoBehaviour
 
     void Update()
     {
-        animator.SetBool("Near", playerNear);
+        if(player != null) 
+        {
+            if (player.GetComponent<PlayerControler>().taskNear)
+            {
+                animator.SetBool("Near", false);
+            }
+            else
+            {
+                animator.SetBool("Near", playerNear);
+            }
+        }
+        else
+        {
+            animator.SetBool("Near", false);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

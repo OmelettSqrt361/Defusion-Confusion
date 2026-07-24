@@ -36,6 +36,10 @@ public class Task : MonoBehaviour
     [HideInInspector]
     public bool noninteractable = false;
 
+    AudioSource audiosS;
+    public AudioClip clip;
+
+
     void Start()
     {
         if (isBomb)
@@ -47,6 +51,7 @@ public class Task : MonoBehaviour
         animator = gameObject.GetComponent<Animator>();
         if (taskMenu != null) { zoomButtons = GetChildrenWithTag(taskMenu, "Zoom"); }
         gm = GameObject.FindWithTag("GameController").GetComponent<GameManager>();
+        if (clip != null) { audiosS = gameObject.GetComponent<AudioSource>(); }
     }
 
 
@@ -97,6 +102,8 @@ public class Task : MonoBehaviour
         taskCam.Priority = 1;
         mainCam.Priority = 0;
         gm.HideOverlayMenu();
+
+        if(clip != null) { audiosS.PlayOneShot(clip); }
 
         // tool handling
         for (int i = 0; i < toolNames.Length; i++) 
