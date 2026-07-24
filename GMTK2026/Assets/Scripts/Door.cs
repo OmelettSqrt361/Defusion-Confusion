@@ -29,7 +29,7 @@ public class Door : MonoBehaviour
     void Update()
     {
         isNear = lockTask.playerNear;
-        if (isNear == true && Input.GetKeyDown(KeyCode.X))
+        if (isNear == true && Input.GetKeyDown(KeyCode.X) && !isLocked)
         {
             bScreen.TurnOn(blackScreenTime);
             lockTask.player.transform.position = teleportDest.position;
