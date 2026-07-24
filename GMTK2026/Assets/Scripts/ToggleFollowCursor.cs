@@ -26,14 +26,15 @@ public class ToggleFollowCursor : MonoBehaviour, IPointerClickHandler
     {
         if (isFollowing)
         {
-            // Follow the mouse cursor position
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(
-                canvas.transform as RectTransform,
+            // Convert screen point directly to World Position
+            if (RectTransformUtility.ScreenPointToWorldPointInRectangle(
+                rectTransform,
                 Input.mousePosition,
-                canvas.renderMode == RenderMode.ScreenSpaceOverlay ? null : canvas.worldCamera,
-                out Vector2 localPoint
-            );
-            rectTransform.anchoredPosition = localPoint;
+                canvas.worldCamera,
+                out Vector3 worldPoint))
+            {
+                transform.position = worldPoint;
+            }
 
             // Check for click while holding
             if (Input.GetMouseButtonDown(0))

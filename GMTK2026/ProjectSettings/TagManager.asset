@@ -7,6 +7,7 @@ TagManager:
   - MainVCamera
   - Zoom
   - BombCounter
+  - BlackScreen
   layers:
   - Default
   - TransparentFX

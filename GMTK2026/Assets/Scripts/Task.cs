@@ -6,8 +6,10 @@ using Cinemachine;
 public class Task : MonoBehaviour
 {
     // Object interaction
-    bool playerNear = false;
-    GameObject player;
+    [HideInInspector]
+    public bool playerNear = false;
+    [HideInInspector]
+    public GameObject player;
     Animator animator;
 
     // Bomb Things
@@ -30,6 +32,10 @@ public class Task : MonoBehaviour
     public string[] toolNames;
     public GameObject[] toolsToActivate;
 
+    // Deactivation
+    [HideInInspector]
+    public bool noninteractable = false;
+
     void Start()
     {
         if (isBomb)
@@ -39,7 +45,7 @@ public class Task : MonoBehaviour
         mainCam = GameObject.FindWithTag("MainVCamera").GetComponent<CinemachineVirtualCamera>();
         taskCam = gameObject.GetComponentInChildren<CinemachineVirtualCamera>();
         animator = gameObject.GetComponent<Animator>();
-        zoomButtons = GetChildrenWithTag(taskMenu, "Zoom");
+        if (taskMenu != null) { zoomButtons = GetChildrenWithTag(taskMenu, "Zoom"); }
         gm = GameObject.FindWithTag("GameController").GetComponent<GameManager>();
     }
 
@@ -47,7 +53,7 @@ public class Task : MonoBehaviour
     void Update()
     {
         animator.SetBool("Near", playerNear);
-        if (playerNear)
+        if (playerNear && !noninteractable)
         {
             if (Input.GetKeyDown(KeyCode.X) && !isRunning)
             {
@@ -97,7 +103,7 @@ public class Task : MonoBehaviour
         { 
             if(toolNames[i] == player.GetComponent<PlayerControler>().attribute)
             {
-                Debug.Log(toolNames[i]);
+                Debug.Log($"Spawning: {toolNames[i]}");
                 toolsToActivate[i].SetActive(true);
             }
         }
@@ -107,16 +113,19 @@ public class Task : MonoBehaviour
     public void TurnOff()
     {
         isRunning = false;
-        taskMenu.SetActive(false);
-        player.GetComponent<PlayerControler>().doingTask = false;
-        taskCam.Priority = 0;
-        mainCam.Priority = 1;
-        gm.ShowOverlayMenu();
-
-        // hide tools
-        foreach (var tool in toolsToActivate)
+        if (player != null)
         {
-            tool.SetActive(false);
+            taskMenu.SetActive(false);
+            player.GetComponent<PlayerControler>().doingTask = false;
+            taskCam.Priority = 0;
+            mainCam.Priority = 1;
+            gm.ShowOverlayMenu();
+
+            // hide tools
+            foreach (var tool in toolsToActivate)
+            {
+                tool.SetActive(false);
+            }
         }
 
     }
