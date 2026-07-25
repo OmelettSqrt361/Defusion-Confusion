@@ -655,6 +655,7 @@ MonoBehaviour:
   isLocked: 0
   blackScreenTime: 0
   teleportDest: {fileID: 0}
+  teleportationSfx: {fileID: 0}
 --- !u!114 &216866508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -676,6 +677,7 @@ MonoBehaviour:
   toolsToActivate:
   - {fileID: 0}
   noninteractable: 0
+  clip: {fileID: 0}
 --- !u!4 &216866509
 Transform:
   m_ObjectHideFlags: 0
@@ -894,6 +896,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initTimer: 60
+  showTimer: 0
   slider: {fileID: 271337892}
   lCDScreen: {fileID: 507812277}
   bombConditionCount: 2
@@ -921,6 +924,7 @@ MonoBehaviour:
   - {fileID: 189853303}
   - {fileID: 1624968354}
   noninteractable: 0
+  clip: {fileID: 0}
 --- !u!95 &256596528
 Animator:
   serializedVersion: 3
@@ -1881,10 +1885,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   overlayMenu: {fileID: 1148147121}
+  playerControler: {fileID: 0}
   winConditionCount: 1
   winConditions: 0
   taskItem: 
+  audioS: {fileID: 0}
+  beep: {fileID: 0}
+  last10secs: {fileID: 0}
+  boom: {fileID: 0}
+  winSFX: {fileID: 0}
+  maxVolume: 0
+  currentBombFactor: 0
   bombs: []
+  minimalBombTime: 0
+  deathScreen: {fileID: 0}
+  winScreen: {fileID: 0}
+  hasEnded: 0
+  notBegun: 0
+  won: 0
+  timer: 0
+  timeText: {fileID: 0}
 --- !u!4 &684507860
 Transform:
   m_ObjectHideFlags: 0
@@ -5207,6 +5227,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   runVelocity: 7
+  runVelocityIncrease: 0
   windupTime: 0.3
   itemsNear: []
   handLoc: {fileID: 2142443044}
@@ -5215,6 +5236,10 @@ MonoBehaviour:
   maxHoldBuffer: 0.1
   taskNear: 0
   doingTask: 0
+  pickup: {fileID: 0}
+  putDown: {fileID: 0}
+  hasEnded: 0
+  notBegun: 1
 --- !u!50 &2145965749
 Rigidbody2D:
   serializedVersion: 4

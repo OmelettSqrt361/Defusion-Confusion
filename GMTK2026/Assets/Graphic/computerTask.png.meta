@@ -1,0 +1,600 @@
+fileFormatVersion: 2
+guid: f94a4a563f72b154db6332af85793d32
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4977024353022980704
+    second: computerTask_0
+  - first:
+      213: 2852803879767348624
+    second: computerTask_1
+  - first:
+      213: 8866033761188378971
+    second: computerTask_2
+  - first:
+      213: -6087172458522223626
+    second: computerTask_3
+  - first:
+      213: -3065874943634672517
+    second: computerTask_4
+  - first:
+      213: -3484361935592394507
+    second: computerTask_5
+  - first:
+      213: -297901302844138978
+    second: computerTask_6
+  - first:
+      213: -3463783556976000718
+    second: computerTask_7
+  - first:
+      213: -766057072629878535
+    second: computerTask_21
+  - first:
+      213: 7422709002103301855
+    second: computerTask_33
+  - first:
+      213: 8252672304169584369
+    second: computerTask_38
+  - first:
+      213: 6110842757341107593
+    second: computerTask_41
+  - first:
+      213: -1355109429974392301
+    second: computerTask_42
+  - first:
+      213: 6164230063844089885
+    second: computerTask_70
+  - first:
+      213: -951097377214729741
+    second: computerTask_8
+  - first:
+      213: -4563301910002229271
+    second: computerTask_9
+  - first:
+      213: 2571430480792322344
+    second: computerTask_10
+  - first:
+      213: -6595320243647724537
+    second: computerTask_11
+  - first:
+      213: 8788179970356335654
+    second: computerTask_12
+  - first:
+      213: -8111106850442695584
+    second: computerTask_13
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: computerTask_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 411
+        width: 1101
+        height: 850
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06237689741f11540800000000000000
+      internalID: 4977024353022980704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: computerTask_1
+      rect:
+        serializedVersion: 2
+        x: 1153
+        y: 415
+        width: 1103
+        height: 850
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 095936b8302379720800000000000000
+      internalID: 2852803879767348624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: computerTask_2
+      rect:
+        serializedVersion: 2
+        x: 2328
+        y: 731
+        width: 513
+        height: 372
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b59f0464bba7a0b70800000000000000
+      internalID: 8866033761188378971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: computerTask_3
+      rect:
+        serializedVersion: 2
+        x: 2337
+        y: 416
+        width: 349
+        height: 205
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fbdd3376e4068ba0800000000000000
+      internalID: -6087172458522223626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: computerTask_4
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 0
+        width: 459
+        height: 337
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7472e28bf2d375d0800000000000000
+      internalID: -3065874943634672517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: computerTask_5
+      rect:
+        serializedVersion: 2
+        x: 893
+        y: 6
+        width: 460
+        height: 338
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f07f10d74f05afc0800000000000000
+      internalID: -3484361935592394507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: computerTask_6
+      rect:
+        serializedVersion: 2
+        x: 1475
+        y: 269
+        width: 112
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1a59d9e754addbf0800000000000000
+      internalID: -297901302844138978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: computerTask_7
+      rect:
+        serializedVersion: 2
+        x: 1644
+        y: 268
+        width: 100
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2314b93f43b2eefc0800000000000000
+      internalID: -3463783556976000718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: computerTask_21
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 251
+        width: 177
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f07834b62b6e55f0800000000000000
+      internalID: -766057072629878535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: computerTask_33
+      rect:
+        serializedVersion: 2
+        x: 1466
+        y: 183
+        width: 242
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd6267d9282c20760800000000000000
+      internalID: 7422709002103301855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: computerTask_38
+      rect:
+        serializedVersion: 2
+        x: 2197
+        y: 180
+        width: 264
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f68bb17cb1678270800000000000000
+      internalID: 8252672304169584369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: computerTask_41
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 100
+        width: 206
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 985d5957c131ec450800000000000000
+      internalID: 6110842757341107593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: computerTask_42
+      rect:
+        serializedVersion: 2
+        x: 1472
+        y: 83
+        width: 262
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3122892372fa13de0800000000000000
+      internalID: -1355109429974392301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: computerTask_70
+      rect:
+        serializedVersion: 2
+        x: 1486
+        y: 0
+        width: 136
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d10e535659ebb8550800000000000000
+      internalID: 6164230063844089885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: computerTask_8
+      rect:
+        serializedVersion: 2
+        x: 1854
+        y: 228
+        width: 239
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f17f4c79f50dc2f0800000000000000
+      internalID: -951097377214729741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: computerTask_9
+      rect:
+        serializedVersion: 2
+        x: 1846
+        y: 112
+        width: 282
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ef947b1715eba0c0800000000000000
+      internalID: -4563301910002229271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: computerTask_10
+      rect:
+        serializedVersion: 2
+        x: 1840
+        y: 30
+        width: 322
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8210d34f56e8fa320800000000000000
+      internalID: 2571430480792322344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: computerTask_11
+      rect:
+        serializedVersion: 2
+        x: 2232
+        y: 12
+        width: 226
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7044f619e27b874a0800000000000000
+      internalID: -6595320243647724537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: computerTask_12
+      rect:
+        serializedVersion: 2
+        x: 2177
+        y: 224
+        width: 292
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 624da4b0f13e5f970800000000000000
+      internalID: 8788179970356335654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: computerTask_13
+      rect:
+        serializedVersion: 2
+        x: 2202
+        y: 136
+        width: 249
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06c20244b4f8f6f80800000000000000
+      internalID: -8111106850442695584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -11,6 +11,9 @@ TextureImporter:
   - first:
       213: 7155652846937496742
     second: tools_2
+  - first:
+      213: 5292716684467120071
+    second: tools_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -170,6 +173,27 @@ TextureImporter:
       bones: []
       spriteID: 6acd8bd1a5cfd4360800000000000000
       internalID: 7155652846937496742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tools_3
+      rect:
+        serializedVersion: 2
+        x: 877
+        y: 1702
+        width: 119
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c7227258c1837940800000000000000
+      internalID: 5292716684467120071
       vertices: []
       indices: 
       edges: []
