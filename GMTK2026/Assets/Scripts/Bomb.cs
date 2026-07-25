@@ -84,5 +84,6 @@ public class Bomb : MonoBehaviour
     public void ResetTimer()
     {
         timer = initTimer;
+        gm.ForceBeepStop();
     }
 }

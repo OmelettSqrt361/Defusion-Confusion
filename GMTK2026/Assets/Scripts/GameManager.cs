@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Timeline;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -103,6 +102,10 @@ public class GameManager : MonoBehaviour
             {
                 audioS.Stop();
                 audioS.PlayOneShot(beep);
+            } else if (minimalBombTime < searchBomb)
+            {
+                audioS.PlayOneShot(last10secs);
+                audioS.time = minimalBombTime;
             }
             minimalBombTime = searchBomb;
         }
@@ -172,6 +175,11 @@ public class GameManager : MonoBehaviour
                 audioSource.Stop();
             }
         }
+    }
+
+    public void ForceBeepStop()
+    {
+        audioS.Stop();
     }
 
 }
