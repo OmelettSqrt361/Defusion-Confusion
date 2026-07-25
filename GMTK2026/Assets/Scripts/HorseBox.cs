@@ -26,11 +26,13 @@ public class HorseBox : MonoBehaviour
     public Bomb bomb;
     Image bg;
     public Sprite winSprite;
+    GameManager gm;
 
     void Start()
     {
         bg = GetComponent<Image>();
         bombTask = bomb.gameObject.GetComponent<Task>();
+        gm = GameObject.FindWithTag("GameController").GetComponent<GameManager>();
     }
 
     public void StartRound()
@@ -95,8 +97,7 @@ public class HorseBox : MonoBehaviour
                 child.gameObject.SetActive(false);
             }
             bomb.bombCoditions++;
-            Debug.Log("Wins");
-
+            gm.winConditions++;
         }
         else if (turns == maxTurns) 
         { 

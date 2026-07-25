@@ -118,7 +118,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   held: 0
   sr: {fileID: 3441112963553419941}
-  attribute: usbFull
+  attribute: usbfull
   animator: {fileID: 3441112963553419946}
 --- !u!95 &3441112963553419946
 Animator:
