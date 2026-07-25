@@ -39,6 +39,10 @@ public class Task : MonoBehaviour
     AudioSource audiosS;
     public AudioClip clip;
 
+    bool noZoomingOut;
+
+
+
 
     void Start()
     {
@@ -52,6 +56,7 @@ public class Task : MonoBehaviour
         if (taskMenu != null) { zoomButtons = GetChildrenWithTag(taskMenu, "Zoom"); }
         gm = GameObject.FindWithTag("GameController").GetComponent<GameManager>();
         if (clip != null) { audiosS = gameObject.GetComponent<AudioSource>(); }
+        noZoomingOut = false;
     }
 
 
@@ -60,15 +65,15 @@ public class Task : MonoBehaviour
         animator.SetBool("Near", playerNear);
         if (playerNear && !noninteractable)
         {
-            if (Input.GetKeyDown(KeyCode.X) && !isRunning)
+            if (Input.GetKeyDown(KeyCode.X) && !isRunning && !noZoomingOut)
             {
                 TurnOn();
             }
-            else if (Input.GetKeyDown(KeyCode.X) && isZoomed)
+            else if (Input.GetKeyDown(KeyCode.X) && isZoomed && !noZoomingOut)
             {
                 ZoomOut();
             }
-            else if (Input.GetKeyDown(KeyCode.X) && isRunning)
+            else if (Input.GetKeyDown(KeyCode.X) && isRunning && !noZoomingOut)
             {
                 TurnOff();
             }
@@ -175,5 +180,15 @@ public class Task : MonoBehaviour
             }
         }
         return matchingChildren.ToArray();
+    }
+
+    public void DisableZoomOut()
+    {
+        noZoomingOut = true;
+    }
+
+    public void EnableZoomOut()
+    {
+        noZoomingOut = false;
     }
 }

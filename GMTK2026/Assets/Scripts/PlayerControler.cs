@@ -23,7 +23,6 @@ public class PlayerControler : MonoBehaviour
     //animation
     Animator animator;
 
-
     // items
     [HideInInspector]
     public List<GameObject> itemsNear = new List<GameObject>();
@@ -33,8 +32,8 @@ public class PlayerControler : MonoBehaviour
     bool holdingItem;
 
     
+    // items
     public string attribute;
-
     public float maxHoldBuffer; // tiny window, where you can't drop the item
     float holdBuffer;
 
@@ -44,10 +43,16 @@ public class PlayerControler : MonoBehaviour
     [HideInInspector]
     public bool doingTask;
 
+    // audio
     public AudioClip pickup;
     public AudioClip putDown;
     AudioSource audioS;
 
+    // gameEnd
+    [HideInInspector]
+    public bool hasEnded = false;
+    [HideInInspector]
+    public bool notBegun = true;
     GameManager gm;
 
 
@@ -57,7 +62,6 @@ public class PlayerControler : MonoBehaviour
         animator = GetComponent<Animator>();
         audioS = GetComponent<AudioSource>();
         gm = GameObject.FindWithTag("GameController").GetComponent<GameManager>();
-
     }
 
     // Update is called once per frame
@@ -71,7 +75,7 @@ public class PlayerControler : MonoBehaviour
         moveDir = new Vector2 (horizontal, vertical);
         moveDir.Normalize();
 
-        if (!doingTask)
+        if (!doingTask && !hasEnded && !notBegun)
         {
             animator.SetFloat("Velocity", velocity); // animation player
             if (horizontal == 0 && vertical == 0)
@@ -116,7 +120,7 @@ public class PlayerControler : MonoBehaviour
     void FixedUpdate()
     {
         // movement logic
-        if (!doingTask)
+        if (!doingTask && !hasEnded && !notBegun)
         {
             rb.velocity = moveDir;
         } else

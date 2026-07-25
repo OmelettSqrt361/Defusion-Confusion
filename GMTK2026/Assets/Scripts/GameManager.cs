@@ -1,11 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Timeline;
 using UnityEngine;
+using UnityEngine.UI;
+
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
 
+    // gamplay stuff
     public GameObject overlayMenu;
+    [HideInInspector]
+    public PlayerControler playerControler;
+
+    // wins
     public int winConditionCount;
     [HideInInspector]
     public int winConditions;
@@ -13,25 +22,44 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public string taskItem = "";
 
-    public Bomb[] bombs;
-
-    [HideInInspector]
-
-    public int minimalBombTime;
-
-    AudioSource audioS;
+    // audio
+    public AudioSource audioS;
     public AudioClip beep;
     public AudioClip last10secs;
+    public AudioClip boom;
+    public AudioClip winSFX;
+
+    // bomb management
     int maxBombTime;
     public float maxVolume;
     [HideInInspector]
     public float currentBombFactor;
+    public Bomb[] bombs;
+    [HideInInspector]
+    public int minimalBombTime;
 
-    bool won;
+    // ending
+    public GameObject deathScreen;
+    public GameObject winScreen;
+    [HideInInspector]
+    public bool hasEnded;
+    [HideInInspector]
+    public bool notBegun;
+    [HideInInspector]
+    public bool won;
+
+    // time measurement
+    [HideInInspector]
+    public float timer;
+    public TextMeshProUGUI timeText;
 
     private void Start()
     {
-        audioS = GetComponent<AudioSource>();
+        audioS = gameObject.GetComponent<AudioSource>();
+        playerControler = GameObject.FindWithTag("Player").GetComponent<PlayerControler>();
+
+        notBegun = true; // becuase begenning countdown
+        playerControler.notBegun = true;
 
         int iterator = int.MinValue;
         foreach(var bomb in bombs)
@@ -66,7 +94,7 @@ public class GameManager : MonoBehaviour
         // either a second passed or a reset was hit either way play sfx
         if (minimalBombTime != searchBomb)
         {
-            audioS.volume = currentBombFactor * maxVolume;
+            if (!won) { audioS.volume = currentBombFactor * maxVolume; }
             if (minimalBombTime == 10)
             {
                 audioS.PlayOneShot(last10secs);
@@ -79,7 +107,8 @@ public class GameManager : MonoBehaviour
             minimalBombTime = searchBomb;
         }
 
-
+        // timer
+        if (!notBegun && !hasEnded) { timer += Time.deltaTime; }
     }
 
     public void HideOverlayMenu()
@@ -94,13 +123,55 @@ public class GameManager : MonoBehaviour
 
     public void Win()
     {
-        Debug.Log("Win!");
+        hasEnded = true;
+        playerControler.hasEnded = true;
+
+        // stop audio
+        audioS.Stop();
+        StopAllAudio();
+        audioS.volume = maxVolume;
+        audioS.PlayOneShot(winSFX);
+
+
+        // open win screen
+        winScreen.SetActive(true);
+        timeText.text = $"Time: {Mathf.FloorToInt(timer / 60)}:" + (Mathf.FloorToInt(timer) % 60).ToString("D2") + $".{Mathf.FloorToInt(timer * 1000) % 1000}";
+        Debug.Log($"{timer}");
         won = true;
     }
 
     public void Lose()
     {
-        Debug.Log("Lose!");
+        hasEnded = true;
+        playerControler.hasEnded = true;
+
+        // delete all bombs
+        foreach (var bomb in bombs)
+        { 
+            bomb.gameObject.SetActive(false);
+        }
+
+        // stop audio
+        audioS.Stop();
+        StopAllAudio();
+        audioS.volume = maxVolume;
+        audioS.PlayOneShot(boom);
+
+        //open deathscreen
+        deathScreen.SetActive(true);
+    }
+
+    public void StopAllAudio()
+    {
+        AudioSource[] allAudioSources = FindObjectsOfType<AudioSource>();
+
+        foreach (AudioSource audioSource in allAudioSources)
+        {
+            if(audioSource != audioS)
+            {
+                audioSource.Stop();
+            }
+        }
     }
 
 }

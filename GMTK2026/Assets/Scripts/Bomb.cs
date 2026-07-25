@@ -24,45 +24,61 @@ public class Bomb : MonoBehaviour
     public int bombConditionCount;
     [HideInInspector]
     public int bombCoditions;
+    GameManager gm;
+    Task thisBombTask;
+
+    //losing
+    bool detonated = false;
 
 
     void Start()
     {
         timer = initTimer;
         countDown = slider.gameObject.GetComponentInChildren<TextMeshProUGUI>();
+        gm = GameObject.FindWithTag("GameController").GetComponent<GameManager>();
+        thisBombTask = gameObject.GetComponent<Task>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (bombCoditions != bombConditionCount)
+        if (bombCoditions != bombConditionCount && gm.hasEnded == false)
         {
-            if (timer >= 0) { timer -= Time.deltaTime; }
+
+            if (!gm.notBegun)
+            {
+                if (timer >= 0) { timer -= Time.deltaTime; }
+            }
+
             showTimer = Mathf.RoundToInt(timer);
             percent = showTimer / initTimer;
-
-
             string lcdScreen = $"{showTimer / 60}:" + (showTimer % 60).ToString("D2");
 
             slider.value = percent;
             countDown.text = showTimer.ToString();
             lCDScreen.text = lcdScreen;
 
-            if (timer <= 0)
-            {
+            if (timer <= 0 && !detonated)
+            { 
                 Detonate();
             }
         }
-        else
+        else if(bombCoditions == bombConditionCount)
         {
             if(slider != null) { Destroy(slider.gameObject); }
             lCDScreen.text = "SAFE";
+            if (gm.won)
+            {
+                thisBombTask.TurnOff();
+            }
         }
     }
 
     public void Detonate()
     {
-        Debug.Log("Detonation!");
+        detonated = true;
+        gm.Lose();
+        thisBombTask.TurnOff();
     }
 
     public void ResetTimer()
