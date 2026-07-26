@@ -10,6 +10,7 @@ public class ScrewCover : MonoBehaviour
     [HideInInspector]
     public int screwsUnsrewed;
     Animator animator;
+    public Task task;
 
     bool done;
 
@@ -31,5 +32,17 @@ public class ScrewCover : MonoBehaviour
         animator.SetTrigger("Open");
         animator.SetBool("Done", true);
         done = true;
+    }
+
+    public void SetZoomOut(int zoomOut)
+    {
+        if (zoomOut == 0)
+        {
+            task.DisableZoomOut();
+        }
+        else
+        {
+            task.EnableZoomOut();
+        }
     }
 }

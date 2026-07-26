@@ -155,8 +155,10 @@ public class GameManager : MonoBehaviour
         }
 
         // stop audio
+        GameObject.FindWithTag("Main Audio").GetComponent<AudioSource>().Stop();
         audioS.Stop();
         StopAllAudio();
+        
         audioS.volume = maxVolume;
         audioS.PlayOneShot(boom);
 
@@ -170,7 +172,8 @@ public class GameManager : MonoBehaviour
 
         foreach (AudioSource audioSource in allAudioSources)
         {
-            if(audioSource != audioS)
+
+            if(audioSource != audioS && audioSource.gameObject.tag != "Main Audio")
             {
                 audioSource.Stop();
             }
