@@ -33,7 +33,7 @@ public class Door : MonoBehaviour
     void Update()
     {
         isNear = lockTask.playerNear;
-        if (isNear == true && Input.GetKeyDown(KeyCode.X) && !isLocked)
+        if (isNear == true && (Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.E)) && !isLocked)
         {
             audioS.PlayOneShot(teleportationSfx);
             bScreen.TurnOn(blackScreenTime);

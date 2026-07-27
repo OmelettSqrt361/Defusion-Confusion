@@ -45,6 +45,7 @@ public class usbInputTask : MonoBehaviour
             cb.pressedColor = enableColor;
             usbButton.colors = cb;
             usbButton.interactable = true;
+
         } else
         {
             ColorBlock cb = usbButton.colors;

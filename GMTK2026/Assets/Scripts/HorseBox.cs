@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -27,12 +28,17 @@ public class HorseBox : MonoBehaviour
     Image bg;
     public Sprite winSprite;
     GameManager gm;
+    AudioSource audioS;
+    public AudioClip winSound;
+    public AudioClip wrongSound;
+    public TextMeshProUGUI displayText;
 
     void Start()
     {
         bg = GetComponent<Image>();
         bombTask = bomb.gameObject.GetComponent<Task>();
         gm = GameObject.FindWithTag("GameController").GetComponent<GameManager>();
+        audioS = GetComponent<AudioSource>();
     }
 
     public void StartRound()
@@ -82,12 +88,21 @@ public class HorseBox : MonoBehaviour
 
     public void Select(int selection)
     {
+
         if(selection != chosen)
         {
-            Debug.Log("Bad Luck!");
             turns = 0;
+            displayText.text = $"0/{maxTurns+1}";
+            audioS.PlayOneShot(wrongSound);
+            displayText.color = Color.red;
         }
-
+        else
+        {
+            displayText.color = Color.black;
+            displayText.text = $"{turns}/{maxTurns+1}";
+            audioS.PlayOneShot(winSound);
+        }
+        
         if (turns > maxTurns)
         {
             bombTask.ZoomOut();

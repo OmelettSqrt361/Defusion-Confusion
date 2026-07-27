@@ -96,6 +96,7 @@ public class GameManager : MonoBehaviour
             if (!won) { audioS.volume = currentBombFactor * maxVolume; }
             if (minimalBombTime == 10)
             {
+                audioS.Stop();
                 audioS.PlayOneShot(last10secs);
             }
             else if(minimalBombTime > 10)
@@ -104,6 +105,7 @@ public class GameManager : MonoBehaviour
                 audioS.PlayOneShot(beep);
             } else if (minimalBombTime < searchBomb)
             {
+                audioS.Stop();
                 audioS.PlayOneShot(last10secs);
                 audioS.time = minimalBombTime;
             }

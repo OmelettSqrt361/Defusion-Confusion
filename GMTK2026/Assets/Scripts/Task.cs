@@ -66,15 +66,15 @@ public class Task : MonoBehaviour
         animator.SetBool("Near", playerNear);
         if (playerNear && !noninteractable)
         {
-            if (Input.GetKeyDown(KeyCode.X) && !isRunning && !noZoomingOut)
+            if ((Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.E)) && !isRunning && !noZoomingOut)
             {
                 TurnOn();
             }
-            else if (Input.GetKeyDown(KeyCode.X) && isZoomed && !noZoomingOut)
+            else if ((Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.E)) && isZoomed && !noZoomingOut)
             {
                 ZoomOut();
             }
-            else if (Input.GetKeyDown(KeyCode.X) && isRunning && !noZoomingOut)
+            else if ((Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.E)) && isRunning && !noZoomingOut)
             {
                 TurnOff();
             }

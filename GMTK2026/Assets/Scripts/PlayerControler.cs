@@ -102,7 +102,7 @@ public class PlayerControler : MonoBehaviour
         {
             // while holding an item
             item.transform.position = handLoc.position;
-            if (Input.GetKeyDown(KeyCode.X) && holdBuffer <= 0 && !taskNear)
+            if ((Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.E)) && holdBuffer <= 0 && !taskNear)
             {
                 ItemDrop();
             }
@@ -110,7 +110,7 @@ public class PlayerControler : MonoBehaviour
         else
         {
             // while not holding an item
-            if (Input.GetKeyDown(KeyCode.X) && itemsNear.Count != 0 && !taskNear)
+            if ((Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.E)) && itemsNear.Count != 0 && !taskNear)
             {
                 ItemPickup();
             }
