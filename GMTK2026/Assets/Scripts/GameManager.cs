@@ -52,10 +52,16 @@ public class GameManager : MonoBehaviour
     public float timer;
     public TextMeshProUGUI timeText;
 
+    // level specifics
+    MusicManager musicManager;
+    public bool hasNewSong;
+    public AudioClip newSong;
+
     private void Start()
     {
         audioS = gameObject.GetComponent<AudioSource>();
         playerControler = GameObject.FindWithTag("Player").GetComponent<PlayerControler>();
+        musicManager = gameObject.GetComponent<MusicManager>();
 
         notBegun = true; // becuase begenning countdown
         playerControler.notBegun = true;
@@ -69,6 +75,12 @@ public class GameManager : MonoBehaviour
             }
         }
         maxBombTime = iterator;
+
+        // audio
+        if (hasNewSong)
+        {
+            musicManager.ChangeSong(newSong);
+        }
     }
 
     public void Update()
