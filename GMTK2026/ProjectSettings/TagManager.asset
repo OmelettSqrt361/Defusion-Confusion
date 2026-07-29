@@ -9,6 +9,10 @@ TagManager:
   - BombCounter
   - BlackScreen
   - Main Audio
+  - Hideable Overlay
+  - Death Screen
+  - Win Screen
+  - Time Text
   layers:
   - Default
   - TransparentFX

@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(CanvasGroup))]
-public class ToggleFollowCursor : MonoBehaviour, IPointerClickHandler
+public class ToggleFollowCursor : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     private bool isFollowing = false;
     private RectTransform rectTransform;
@@ -12,50 +12,66 @@ public class ToggleFollowCursor : MonoBehaviour, IPointerClickHandler
     private CanvasGroup canvasGroup;
 
     public string attribute;
-    GameManager gm;
+    private GameManager gm;
 
     void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
         canvas = GetComponentInParent<Canvas>();
         canvasGroup = GetComponent<CanvasGroup>();
-        gm = GameObject.FindWithTag("GameController").GetComponent<GameManager>();
+
+        GameObject gc = GameObject.FindWithTag("GameController");
+        if (gc != null)
+        {
+            gm = gc.GetComponent<GameManager>();
+        }
     }
 
     void Update()
     {
         if (isFollowing)
         {
-            // Convert screen point directly to World Position
+            // Follow cursor position
             if (RectTransformUtility.ScreenPointToWorldPointInRectangle(
                 rectTransform,
                 Input.mousePosition,
-                canvas.worldCamera,
+                canvas.renderMode == RenderMode.ScreenSpaceOverlay ? null : canvas.worldCamera,
                 out Vector3 worldPoint))
             {
                 transform.position = worldPoint;
             }
 
-            // Check for click while holding
+            // Drop item on next left click (ignoring the frame it was picked up)
             if (Input.GetMouseButtonDown(0))
             {
-                // Drop only if we didn't click on a UI Button underneath
                 if (!IsHoveringButton())
                 {
                     StopFollowing();
                 }
             }
 
-            gm.taskItem = attribute;
+            if (gm != null) gm.taskItem = attribute;
         }
         else
         {
-            gm.taskItem = "";
+            if (gm != null && gm.taskItem == attribute) gm.taskItem = "";
         }
     }
 
-    // Called when clicking the item initially to pick it up
+    // Handles normal click to pick up
     public void OnPointerClick(PointerEventData eventData)
+    {
+        // Avoid toggling off on the same click that picks it up via Drag
+        if (eventData.dragging) return;
+
+        if (!isFollowing)
+        {
+            StartFollowing();
+        }
+    }
+
+    // Handles click-and-drag mechanics
+    public void OnBeginDrag(PointerEventData eventData)
     {
         if (!isFollowing)
         {
@@ -63,17 +79,27 @@ public class ToggleFollowCursor : MonoBehaviour, IPointerClickHandler
         }
     }
 
+    public void OnDrag(PointerEventData eventData)
+    {
+        // Interface required by Unity to process drag events properly
+    }
+
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        // Releasing the mouse button after dragging keeps 'isFollowing' true,
+        // so it continues to follow the cursor until the next click.
+    }
+
     private void StartFollowing()
     {
         isFollowing = true;
-        // Let raycasts pass through this item to UI elements underneath
+        // Allows mouse clicks to pass through the object to UI underneath
         canvasGroup.blocksRaycasts = false;
     }
 
     private void StopFollowing()
     {
         isFollowing = false;
-        // Re-enable raycasts so the item can be clicked/picked up again
         canvasGroup.blocksRaycasts = true;
     }
 
@@ -87,10 +113,9 @@ public class ToggleFollowCursor : MonoBehaviour, IPointerClickHandler
         List<RaycastResult> results = new List<RaycastResult>();
         EventSystem.current.RaycastAll(eventData, results);
 
-        // Check if any UI element under the cursor is a Button
         foreach (RaycastResult result in results)
         {
-            if (result.gameObject.GetComponentInParent<Button>() != null)
+            if (result.gameObject != gameObject && result.gameObject.GetComponentInParent<Button>() != null)
             {
                 return true;
             }

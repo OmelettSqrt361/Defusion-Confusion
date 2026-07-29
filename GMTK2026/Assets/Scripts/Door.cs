@@ -32,7 +32,7 @@ public class Door : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        isNear = lockTask.playerNear;
+        isNear = lockTask.closestInteractable;
         if (isNear == true && (Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.E)) && !isLocked)
         {
             audioS.PlayOneShot(teleportationSfx);
@@ -47,6 +47,7 @@ public class Door : MonoBehaviour
         lockTask.TurnOff();
         lockTask.noninteractable = true;
         animator.SetBool("Open", true);
+        lockTask.taskType = Task.taskTypes.door;
         isLocked = false;
     }
 }

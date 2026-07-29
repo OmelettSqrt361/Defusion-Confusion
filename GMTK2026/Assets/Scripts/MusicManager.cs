@@ -6,6 +6,13 @@ public class MusicManager : MonoBehaviour
 {
     AudioSource audioS;
 
+    // A list of sounds
+    [Header("List of SFX")]
+    public AudioClip beep;
+    public AudioClip last10secs;
+    public AudioClip boom;
+    public AudioClip winSFX;
+
     void Awake()
     {
         if(GameObject.FindWithTag("Main Audio").GetComponent<GameManager>() == null)
@@ -16,15 +23,16 @@ public class MusicManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
-
-    private void Start()
-    {
         audioS = GetComponent<AudioSource>();
     }
 
-    public void ChangeSong(AudioClip newSong)
+    public void ChangeSong(AudioClip newSong, float volume)
     {
-        audioS.clip = newSong;
+        if (audioS.clip != newSong)
+        {
+            audioS.clip = newSong;
+            audioS.volume = volume;
+            audioS.Play();
+        }
     }
 }

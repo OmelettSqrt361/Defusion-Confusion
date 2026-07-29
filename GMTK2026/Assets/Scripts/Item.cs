@@ -6,7 +6,7 @@ public class Item : MonoBehaviour
 {
 
     // held or near checking
-    bool playerNear = false;
+    public bool closestInteractable = false;
     public bool held = false;
     GameObject player;
 
@@ -17,28 +17,13 @@ public class Item : MonoBehaviour
 
     void Update()
     {
-        if(player != null) 
-        {
-            if (player.GetComponent<PlayerControler>().taskNear)
-            {
-                animator.SetBool("Near", false);
-            }
-            else
-            {
-                animator.SetBool("Near", playerNear);
-            }
-        }
-        else
-        {
-            animator.SetBool("Near", false);
-        }
+        animator.SetBool("Near", closestInteractable);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            playerNear = true;
             player = collision.gameObject;
             collision.GetComponent<PlayerControler>().ItemAddProximity(this.gameObject);
         }
@@ -48,7 +33,6 @@ public class Item : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            playerNear = false;
             player = null;
             collision.GetComponent<PlayerControler>().ItemCloseProximity(this.gameObject);
         }

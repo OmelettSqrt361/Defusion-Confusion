@@ -1149,14 +1149,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c181fb86693a02543a501e89c459a5fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  taskType: 0
   playerNear: 0
   player: {fileID: 0}
-  isBomb: 0
+  animator: {fileID: 0}
+  b: {fileID: 0}
+  gm: {fileID: 0}
+  mainCam: {fileID: 0}
+  taskCam: {fileID: 0}
+  zoomCam: {fileID: 0}
+  zoomButtons: []
   taskMenu: {fileID: 1496471917}
+  isRunning: 0
+  isZoomed: 0
   toolNames: []
   toolsToActivate: []
+  activeTools: []
   noninteractable: 0
+  audiosS: {fileID: 0}
+  hasAudio: 0
   clip: {fileID: 0}
+  noZoomingOut: 0
 --- !u!1 &143929363
 GameObject:
   m_ObjectHideFlags: 0
@@ -2279,7 +2292,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 220042450}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -30.858093, y: -3.4088063, z: 95.47946}
+  m_LocalPosition: {x: -30.857857, y: -3.4088063, z: 95.47946}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1644681971}
@@ -2911,7 +2924,7 @@ GameObject:
   - component: {fileID: 282100408}
   m_Layer: 5
   m_Name: TimeText
-  m_TagString: Untagged
+  m_TagString: Time Text
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3326,14 +3339,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c181fb86693a02543a501e89c459a5fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  taskType: 0
   playerNear: 0
   player: {fileID: 0}
-  isBomb: 0
+  animator: {fileID: 0}
+  b: {fileID: 0}
+  gm: {fileID: 0}
+  mainCam: {fileID: 0}
+  taskCam: {fileID: 0}
+  zoomCam: {fileID: 0}
+  zoomButtons: []
   taskMenu: {fileID: 597690080}
+  isRunning: 0
+  isZoomed: 0
   toolNames: []
   toolsToActivate: []
+  activeTools: []
   noninteractable: 0
+  audiosS: {fileID: 0}
+  hasAudio: 0
   clip: {fileID: 8300000, guid: f7e175e212c0e0d4aa3bb710ece256a5, type: 3}
+  noZoomingOut: 0
 --- !u!82 &295066351
 AudioSource:
   m_ObjectHideFlags: 0
@@ -8263,14 +8289,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c181fb86693a02543a501e89c459a5fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  taskType: 0
   playerNear: 0
   player: {fileID: 0}
-  isBomb: 0
+  animator: {fileID: 0}
+  b: {fileID: 0}
+  gm: {fileID: 0}
+  mainCam: {fileID: 0}
+  taskCam: {fileID: 0}
+  zoomCam: {fileID: 0}
+  zoomButtons: []
   taskMenu: {fileID: 1736046204}
+  isRunning: 0
+  isZoomed: 0
   toolNames: []
   toolsToActivate: []
+  activeTools: []
   noninteractable: 0
+  audiosS: {fileID: 0}
+  hasAudio: 0
   clip: {fileID: 0}
+  noZoomingOut: 0
 --- !u!1 &816175349
 GameObject:
   m_ObjectHideFlags: 0
@@ -8725,14 +8764,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c181fb86693a02543a501e89c459a5fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  taskType: 0
   playerNear: 0
   player: {fileID: 0}
-  isBomb: 0
+  animator: {fileID: 0}
+  b: {fileID: 0}
+  gm: {fileID: 0}
+  mainCam: {fileID: 0}
+  taskCam: {fileID: 0}
+  zoomCam: {fileID: 0}
+  zoomButtons: []
   taskMenu: {fileID: 253748450}
+  isRunning: 0
+  isZoomed: 0
   toolNames: []
   toolsToActivate: []
+  activeTools: []
   noninteractable: 0
+  audiosS: {fileID: 0}
+  hasAudio: 0
   clip: {fileID: 0}
+  noZoomingOut: 0
 --- !u!82 &833759045
 AudioSource:
   m_ObjectHideFlags: 0
@@ -9003,133 +9055,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 839190128}
   m_CullTransparentMesh: 1
---- !u!1 &855344950
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 855344952}
-  - component: {fileID: 855344951}
-  m_Layer: 0
-  m_Name: Zane Little - Rhythm Factory (warehouse)
-  m_TagString: Main Audio
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!82 &855344951
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 855344950}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 446a1d2a176966c48b0a35e528b082f4, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 0.042
-  m_Pitch: 1
-  Loop: 1
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
---- !u!4 &855344952
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 855344950}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -74.94345, y: 43.35474, z: -459.51248}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &879108367
 GameObject:
   m_ObjectHideFlags: 0
@@ -11473,18 +11398,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c181fb86693a02543a501e89c459a5fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  taskType: 0
   playerNear: 0
   player: {fileID: 0}
-  isBomb: 1
+  animator: {fileID: 0}
+  b: {fileID: 0}
+  gm: {fileID: 0}
+  mainCam: {fileID: 0}
+  taskCam: {fileID: 0}
+  zoomCam: {fileID: 0}
+  zoomButtons: []
   taskMenu: {fileID: 516248313}
+  isRunning: 0
+  isZoomed: 0
   toolNames:
   - scissors
   - screwdriver
   toolsToActivate:
   - {fileID: 188267902}
   - {fileID: 1141925674}
+  activeTools: []
   noninteractable: 0
+  audiosS: {fileID: 0}
+  hasAudio: 0
   clip: {fileID: 0}
+  noZoomingOut: 0
 --- !u!95 &1106346778
 Animator:
   serializedVersion: 3
@@ -11843,7 +11781,7 @@ GameObject:
   - component: {fileID: 1153896206}
   m_Layer: 5
   m_Name: BombExplosion
-  m_TagString: Untagged
+  m_TagString: Death Screen
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11922,7 +11860,7 @@ GameObject:
   - component: {fileID: 1158989151}
   m_Layer: 5
   m_Name: BombDifused
-  m_TagString: Untagged
+  m_TagString: Win Screen
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13214,49 +13152,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1332270416
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1332270418}
-  - component: {fileID: 1332270417}
-  m_Layer: 0
-  m_Name: QuitObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1332270417
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1332270416}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5f284cdbe7243a478dfa190ddcdf6db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1332270418
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1332270416}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -121.02643, y: 30.380955, z: -624.85596}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1332286123
 GameObject:
   m_ObjectHideFlags: 0
@@ -14642,16 +14537,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ccedad6dd3cf1e49aa9266437517032, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneType: 2
   overlayMenu: {fileID: 1547859537}
   playerControler: {fileID: 0}
   winConditionCount: 1
   winConditions: 0
   taskItem: 
-  audioS: {fileID: 1453311441}
-  beep: {fileID: 8300000, guid: d88c08ed45e34514ca5f0030fc08c45f, type: 3}
-  last10secs: {fileID: 8300000, guid: 5f08ef837fe21fc4bb6d0a2ab071f466, type: 3}
-  boom: {fileID: 8300000, guid: 2c4a4ac19f3daf64b95ca08ac13fa81d, type: 3}
-  winSFX: {fileID: 8300000, guid: 07c2dec14a8894b4aa5093e67815d026, type: 3}
+  maxBombTime: 0
   maxVolume: 0.8
   currentBombFactor: 0
   bombs:
@@ -14664,6 +14556,10 @@ MonoBehaviour:
   won: 0
   timer: 0
   timeText: {fileID: 282100409}
+  musicManager: {fileID: 0}
+  hasNewSong: 1
+  newSong: {fileID: 8300000, guid: 446a1d2a176966c48b0a35e528b082f4, type: 3}
+  musicManagerFallback: {fileID: 7845159716631191354, guid: 3fd4d106ae36fb6439942047f07c77f4, type: 3}
 --- !u!4 &1453311440
 Transform:
   m_ObjectHideFlags: 0
@@ -15838,7 +15734,7 @@ GameObject:
   - component: {fileID: 1547859538}
   m_Layer: 5
   m_Name: OverlayCanvas
-  m_TagString: Untagged
+  m_TagString: Hideable Overlay
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22326,14 +22222,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c181fb86693a02543a501e89c459a5fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  taskType: 0
   playerNear: 0
   player: {fileID: 0}
-  isBomb: 0
+  animator: {fileID: 0}
+  b: {fileID: 0}
+  gm: {fileID: 0}
+  mainCam: {fileID: 0}
+  taskCam: {fileID: 0}
+  zoomCam: {fileID: 0}
+  zoomButtons: []
   taskMenu: {fileID: 1581674091}
+  isRunning: 0
+  isZoomed: 0
   toolNames: []
   toolsToActivate: []
+  activeTools: []
   noninteractable: 0
+  audiosS: {fileID: 0}
+  hasAudio: 0
   clip: {fileID: 0}
+  noZoomingOut: 0
 --- !u!58 &1027621249811814810
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -23439,14 +23348,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c181fb86693a02543a501e89c459a5fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  taskType: 0
   playerNear: 0
   player: {fileID: 0}
-  isBomb: 0
+  animator: {fileID: 0}
+  b: {fileID: 0}
+  gm: {fileID: 0}
+  mainCam: {fileID: 0}
+  taskCam: {fileID: 0}
+  zoomCam: {fileID: 0}
+  zoomButtons: []
   taskMenu: {fileID: 1566514492353878156}
+  isRunning: 0
+  isZoomed: 0
   toolNames: []
   toolsToActivate: []
+  activeTools: []
   noninteractable: 0
+  audiosS: {fileID: 0}
+  hasAudio: 0
   clip: {fileID: 0}
+  noZoomingOut: 0
 --- !u!95 &1646684045236124138
 Animator:
   serializedVersion: 3
@@ -23976,14 +23898,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c181fb86693a02543a501e89c459a5fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  taskType: 0
   playerNear: 0
   player: {fileID: 0}
-  isBomb: 0
+  animator: {fileID: 0}
+  b: {fileID: 0}
+  gm: {fileID: 0}
+  mainCam: {fileID: 0}
+  taskCam: {fileID: 0}
+  zoomCam: {fileID: 0}
+  zoomButtons: []
   taskMenu: {fileID: 670947836}
+  isRunning: 0
+  isZoomed: 0
   toolNames: []
   toolsToActivate: []
+  activeTools: []
   noninteractable: 0
+  audiosS: {fileID: 0}
+  hasAudio: 0
   clip: {fileID: 0}
+  noZoomingOut: 0
 --- !u!4 &2286789716514520844
 Transform:
   m_ObjectHideFlags: 0
@@ -24967,14 +24902,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c181fb86693a02543a501e89c459a5fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  taskType: 0
   playerNear: 0
   player: {fileID: 0}
-  isBomb: 0
+  animator: {fileID: 0}
+  b: {fileID: 0}
+  gm: {fileID: 0}
+  mainCam: {fileID: 0}
+  taskCam: {fileID: 0}
+  zoomCam: {fileID: 0}
+  zoomButtons: []
   taskMenu: {fileID: 2467566022446893821}
+  isRunning: 0
+  isZoomed: 0
   toolNames: []
   toolsToActivate: []
+  activeTools: []
   noninteractable: 0
+  audiosS: {fileID: 0}
+  hasAudio: 0
   clip: {fileID: 0}
+  noZoomingOut: 0
 --- !u!4 &2738377747212140356
 Transform:
   m_ObjectHideFlags: 0
@@ -26093,14 +26041,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c181fb86693a02543a501e89c459a5fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  taskType: 0
   playerNear: 0
   player: {fileID: 0}
-  isBomb: 0
+  animator: {fileID: 0}
+  b: {fileID: 0}
+  gm: {fileID: 0}
+  mainCam: {fileID: 0}
+  taskCam: {fileID: 0}
+  zoomCam: {fileID: 0}
+  zoomButtons: []
   taskMenu: {fileID: 37532306828194220}
+  isRunning: 0
+  isZoomed: 0
   toolNames: []
   toolsToActivate: []
+  activeTools: []
   noninteractable: 0
+  audiosS: {fileID: 0}
+  hasAudio: 0
   clip: {fileID: 0}
+  noZoomingOut: 0
 --- !u!4 &4984124013956685149
 Transform:
   m_ObjectHideFlags: 0
@@ -27238,16 +27199,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c181fb86693a02543a501e89c459a5fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  taskType: 5
   playerNear: 0
   player: {fileID: 0}
-  isBomb: 0
+  animator: {fileID: 0}
+  b: {fileID: 0}
+  gm: {fileID: 0}
+  mainCam: {fileID: 0}
+  taskCam: {fileID: 0}
+  zoomCam: {fileID: 0}
+  zoomButtons: []
   taskMenu: {fileID: 5798514722184057961}
+  isRunning: 0
+  isZoomed: 0
   toolNames:
   - key
   toolsToActivate:
   - {fileID: 5798514722338737334}
+  activeTools: []
   noninteractable: 0
+  audiosS: {fileID: 0}
+  hasAudio: 0
   clip: {fileID: 0}
+  noZoomingOut: 0
 --- !u!4 &5959955780809183649
 Transform:
   m_ObjectHideFlags: 0
@@ -27747,16 +27721,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c181fb86693a02543a501e89c459a5fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  taskType: 2
   playerNear: 0
   player: {fileID: 0}
-  isBomb: 0
+  animator: {fileID: 0}
+  b: {fileID: 0}
+  gm: {fileID: 0}
+  mainCam: {fileID: 0}
+  taskCam: {fileID: 0}
+  zoomCam: {fileID: 0}
+  zoomButtons: []
   taskMenu: {fileID: 0}
+  isRunning: 0
+  isZoomed: 0
   toolNames:
   - key
   toolsToActivate:
   - {fileID: 0}
+  activeTools: []
   noninteractable: 0
+  audiosS: {fileID: 0}
+  hasAudio: 0
   clip: {fileID: 0}
+  noZoomingOut: 0
 --- !u!4 &5959955782168132865
 Transform:
   m_ObjectHideFlags: 0

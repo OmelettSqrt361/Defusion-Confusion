@@ -26,6 +26,8 @@ public class PlayerControler : MonoBehaviour
     // items
     [HideInInspector]
     public List<GameObject> itemsNear = new List<GameObject>();
+    [HideInInspector]
+    public List<GameObject> tasksNear = new List<GameObject>();
     public Transform handLoc;
     [HideInInspector]
     public GameObject item;
@@ -38,10 +40,7 @@ public class PlayerControler : MonoBehaviour
     float holdBuffer;
 
     // tasks
-    [HideInInspector]
-    public bool taskNear;
-    [HideInInspector]
-    public bool doingTask;
+    [SerializeField] public bool doingTask;
 
     // audio
     public AudioClip pickup;
@@ -64,7 +63,6 @@ public class PlayerControler : MonoBehaviour
         gm = GameObject.FindWithTag("GameController").GetComponent<GameManager>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         // input management
@@ -98,6 +96,55 @@ public class PlayerControler : MonoBehaviour
             holdBuffer -= Time.deltaTime;
         }
 
+        SetClosestInteractable();
+
+        Debug.Log($"Doing task: {doingTask}");
+        if ((Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.E)) && (doingTask == false))
+        {
+            Debug.Log("Searching!");
+            if(tasksNear.Count > 0)
+            {
+                if (holdingItem)
+                {
+                    EventInteract();
+                }
+                else
+                {
+                    ItemEventInteract();
+                }
+            }
+            else if(itemsNear.Count > 0)
+            {
+                // Interact with Items
+                if (holdingItem)
+                {
+                    if(holdBuffer <= 0)
+                    {
+                        ItemDrop();
+                    }
+                    else
+                    {
+                        // do nothing, until holdbuffer is empty
+                    }
+                }
+                else
+                {
+                    ItemPickup();
+                }
+            }
+            else if (holdingItem && holdBuffer <= 0)
+            {
+                ItemDrop();
+            }
+        }
+        else if ((Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.E)))
+        {
+            Debug.Log("Doing Task");
+        }
+
+        /*  --------------------
+         *  OLD INTERACTION CODE
+         *  --------------------
         if(holdingItem)
         {
             // while holding an item
@@ -115,6 +162,7 @@ public class PlayerControler : MonoBehaviour
                 ItemPickup();
             }
         }
+        */
     }
 
     void FixedUpdate()
@@ -170,11 +218,157 @@ public class PlayerControler : MonoBehaviour
         holdBuffer = maxHoldBuffer;
     }
 
+    public void EventInteract()
+    {
+        GameObject nearestItem = null;
+        float leastDistance = float.MaxValue;
+
+        foreach (var i in tasksNear)
+        {
+            // distance calculation
+            float dist = Mathf.Sqrt(
+                Mathf.Pow(transform.position.x - i.transform.position.x, 2)
+                + Mathf.Pow(transform.position.y - i.transform.position.y, 2));
+            if (dist < leastDistance)
+            {
+                leastDistance = dist;
+                nearestItem = i;
+            }
+        }
+
+        // Open Near Tasks
+        nearestItem.GetComponent<Task>().TurnOn();
+        doingTask = true;
+    }
+
+    public void ItemEventInteract()
+    {
+        GameObject nearestItem = null;
+        float leastDistance = float.MaxValue;
+
+        // Check items
+        foreach (var i in itemsNear)
+        {
+            // distance calculation
+            float dist = Mathf.Sqrt(
+                Mathf.Pow(transform.position.x - i.transform.position.x, 2)
+                + Mathf.Pow(transform.position.y - i.transform.position.y, 2));
+            if (dist < leastDistance)
+            {
+                leastDistance = dist;
+                nearestItem = i;
+            }
+        }
+
+        // Check Tasks
+        foreach (var i in tasksNear)
+        {
+            // distance calculation
+            float dist = Mathf.Sqrt(
+                Mathf.Pow(transform.position.x - i.transform.position.x, 2)
+                + Mathf.Pow(transform.position.y - i.transform.position.y, 2));
+            if (dist < leastDistance)
+            {
+                leastDistance = dist;
+                nearestItem = i;
+            }
+        }
+
+        if (itemsNear.Contains(nearestItem)) // If it is an item just treat it as such
+        {
+            item = nearestItem;
+            attribute = item.GetComponent<Item>().attribute;
+            item.GetComponent<Item>().ItemGrabbed();
+
+            audioS.PlayOneShot(pickup);
+
+            holdingItem = true;
+            holdBuffer = maxHoldBuffer;
+        }
+        else // If it's a task turn it on
+        {
+            nearestItem.GetComponent<Task>().TurnOn();
+            doingTask = true;
+        }
+    }
+
+    public void SetClosestInteractable()
+    {
+        GameObject nearestItem = null;
+        float leastDistance = float.MaxValue;
+
+        // Check items
+        if (!holdingItem)
+        {
+            foreach (var i in itemsNear)
+            {
+                // distance calculation
+                float dist = Mathf.Sqrt(
+                    Mathf.Pow(transform.position.x - i.transform.position.x, 2)
+                    + Mathf.Pow(transform.position.y - i.transform.position.y, 2));
+                if (dist < leastDistance)
+                {
+                    leastDistance = dist;
+                    nearestItem = i;
+                }
+            }
+        }
+
+        // Check Tasks
+        foreach (var i in tasksNear)
+        {
+            if (!i.GetComponent<Task>().noninteractable)
+            {
+                // distance calculation
+                float dist = Mathf.Sqrt(
+                    Mathf.Pow(transform.position.x - i.transform.position.x, 2)
+                    + Mathf.Pow(transform.position.y - i.transform.position.y, 2));
+                if (dist < leastDistance)
+                {
+                    leastDistance = dist;
+                    nearestItem = i;
+                }
+            }
+        }
+
+        if (nearestItem != null)
+        {
+            if (itemsNear.Contains(nearestItem)) // Set Item as closest
+            {
+                nearestItem.GetComponent<Item>().closestInteractable = true;
+            }
+            else // Set Task as closest
+            {
+                nearestItem.GetComponent<Task>().closestInteractable = true;
+            }
+        }
+
+        // Set all other interactables as not closest
+        foreach (var i in itemsNear)
+        {
+            if(i != nearestItem)
+            {
+                i.GetComponent<Item>().closestInteractable = false;
+            }
+        }
+        foreach (var i in tasksNear)
+        {
+            if (i != nearestItem)
+            {
+                i.GetComponent<Task>().closestInteractable = false;
+            }
+        }
+    }
 
     // manage proximity grabbing
     public void ItemAddProximity(GameObject newItem)
     {
         itemsNear.Add(newItem);
+    }
+
+    public void TaskAddProximity(GameObject newItem)
+    {
+        tasksNear.Add(newItem);
     }
 
     public void ItemCloseProximity(GameObject newItem)
@@ -183,5 +377,15 @@ public class PlayerControler : MonoBehaviour
         {
             itemsNear.Remove(newItem);
         }
+        newItem.GetComponent<Item>().closestInteractable = false;
+    }
+
+    public void TaskCloseProximity(GameObject newItem)
+    {
+        if (tasksNear.Contains(newItem))
+        {
+            tasksNear.Remove(newItem);
+        }
+        newItem.GetComponent<Task>().closestInteractable = false;
     }
 }

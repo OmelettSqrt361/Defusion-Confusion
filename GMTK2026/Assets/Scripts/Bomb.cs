@@ -28,7 +28,7 @@ public class Bomb : MonoBehaviour
     Task thisBombTask;
 
     //losing
-    bool detonated = false;
+    bool done = false;
 
 
     void Start()
@@ -42,7 +42,7 @@ public class Bomb : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (bombCoditions != bombConditionCount && gm.hasEnded == false)
+        if (bombCoditions != bombConditionCount && gm.hasEnded == false && !done)
         {
 
             if (!gm.notBegun)
@@ -58,25 +58,20 @@ public class Bomb : MonoBehaviour
             countDown.text = showTimer.ToString();
             lCDScreen.text = lcdScreen;
 
-            if (timer <= 0 && !detonated)
+            if (timer <= 0 && !done)
             { 
                 Detonate();
             }
         }
         else if(bombCoditions == bombConditionCount)
         {
-            if(slider != null) { Destroy(slider.gameObject); }
-            lCDScreen.text = "SAFE";
-            if (gm.won)
-            {
-                thisBombTask.TurnOff();
-            }
+            Defuse(false);
         }
     }
 
     public void Detonate()
     {
-        detonated = true;
+        done = true;
         gm.Lose();
         thisBombTask.TurnOff();
     }
@@ -85,5 +80,19 @@ public class Bomb : MonoBehaviour
     {
         timer = initTimer;
         gm.ForceBeepStop();
+    }
+
+    public void Defuse(bool isDebug)
+    {
+        done = true;
+        bombCoditions = bombConditionCount;
+        if (slider != null) { Destroy(slider.gameObject); }
+        if (isDebug) { gm.winConditions += bombConditionCount; }
+        lCDScreen.text = "SAFE";
+        if (gm.won)
+        {
+            thisBombTask.TurnOff();
+        }
+        gm.DefuseBomb(this);
     }
 }
