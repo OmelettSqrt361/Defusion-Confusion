@@ -49,7 +49,7 @@ Shader "Sprites/PixelPerfectOutline"
 
             fixed4 _Color;
             sampler2D _MainTex;
-            float4 _MainTex_TexelSize; // x = 1/width, y = 1/height
+            float4 _MainTex_TexelSize;
 
             fixed4 _OutlineColor;
             int _OutlineThickness;
@@ -57,8 +57,6 @@ Shader "Sprites/PixelPerfectOutline"
             v2f vert(appdata_t IN)
             {
                 v2f OUT;
-                
-                // Clean standard vertex projection (no vertex distortion)
                 OUT.vertex = UnityObjectToClipPos(IN.vertex);
                 OUT.texcoord = IN.texcoord;
                 OUT.color = IN.color * _Color;
@@ -74,16 +72,28 @@ Shader "Sprites/PixelPerfectOutline"
             {
                 fixed4 c = tex2D(_MainTex, IN.texcoord) * IN.color;
 
-                // If the pixel is already solid, draw the sprite normally
+                // 1. If pixel is already solid sprite artwork, return normal pixel
                 if (c.a > 0.1)
                 {
                     return c;
                 }
 
                 int radius = clamp(_OutlineThickness, 1, 10);
-                float alphaMax = 0.0;
 
-                // Sample surrounding pixels using texel size
+                // FIX: use (radius + 0.5) as the growth boundary instead of `radius`.
+                // A strict Euclidean circle (dist <= radius) under-includes diagonal
+                // pixels on an integer grid -- e.g. at radius=1 it drops the (1,1)
+                // corner entirely, and at radius=2 it drops near-corner pixels like
+                // (2,1). That's what produced the notched/uneven look. Testing against
+                // the pixel's outer edge (radius + 0.5) instead matches how selection
+                // "grow" tools like GIMP's actually dilate a mask -- full 3x3 fill at
+                // radius 1, smooth octagon-like growth at larger radii.
+                float radiusF = (float)radius + 0.5;
+                float radiusSqF = radiusF * radiusF;
+
+                float maxAlpha = 0.0;
+
+                // 2. Circular (Euclidean) distance sampling
                 [loop]
                 for (int x = -10; x <= 10; x++)
                 {
@@ -94,23 +104,36 @@ Shader "Sprites/PixelPerfectOutline"
                     {
                         if (abs(y) > radius || (x == 0 && y == 0)) continue;
 
-                        float2 offset = float2(x, y) * _MainTex_TexelSize.xy;
-                        float2 nUV = IN.texcoord + offset;
+                        // Skip samples outside the (corrected) circular radius so the
+                        // outline grows as a smooth disc rather than squaring off,
+                        // while still fully filling small radii like GIMP's grow does.
+                        if ((float)(x * x + y * y) > radiusSqF) continue;
 
-                        fixed4 neighbor = tex2D(_MainTex, nUV);
-                        alphaMax = max(alphaMax, neighbor.a);
+                        float2 offset = float2(x, y) * _MainTex_TexelSize.xy;
+                        float2 sampleUV = IN.texcoord + offset;
+
+                        // Keep samples within 0 to 1 UV range
+                        if (sampleUV.x >= 0.0 && sampleUV.x <= 1.0 && sampleUV.y >= 0.0 && sampleUV.y <= 1.0)
+                        {
+                            fixed4 neighbor = tex2D(_MainTex, sampleUV);
+
+                            if (neighbor.a > 0.1)
+                            {
+                                maxAlpha = max(maxAlpha, neighbor.a);
+                            }
+                        }
                     }
                 }
 
-                // If neighbor pixels are opaque, render the outline color here
-                if (alphaMax > 0.1)
+                // 3. Render outline color following the rounded silhouette
+                if (maxAlpha > 0.1)
                 {
                     fixed4 outline = _OutlineColor;
-                    outline.a *= alphaMax;
+                    outline.a *= maxAlpha;
                     return outline;
                 }
 
-                return c;
+                return fixed4(0, 0, 0, 0);
             }
             ENDCG
         }

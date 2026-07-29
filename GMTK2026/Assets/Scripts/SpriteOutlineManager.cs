@@ -11,7 +11,6 @@ public class SpriteOutlineManager : MonoBehaviour
         public SpriteRenderer spriteRenderer;
         public Color outlineColor;
 
-        // Constructor for quick instantiation
         public OutlineTarget(SpriteRenderer renderer, Color color)
         {
             this.spriteRenderer = renderer;
@@ -23,9 +22,6 @@ public class SpriteOutlineManager : MonoBehaviour
     [Range(1, 10)]
     [SerializeField] private int globalThickness = 1;
     [SerializeField] private Material outlineMaterial;
-
-    [Tooltip("Amount to expand sprite bounds so camera culling doesn't clip the outline when moving.")]
-    [SerializeField] private Vector3 boundsPadding = new Vector3(0.5f, 0.5f, 0f);
 
     [Header("Individual Object Setup")]
     public List<OutlineTarget> outlineObjects = new List<OutlineTarget>();
@@ -48,7 +44,7 @@ public class SpriteOutlineManager : MonoBehaviour
 
     private void Update()
     {
-        // Keeps properties and bounds updated live during edit mode or runtime
+        // Keeps properties updated live during edit mode
         if (!Application.isPlaying)
         {
             ApplyOutlines();
@@ -70,14 +66,7 @@ public class SpriteOutlineManager : MonoBehaviour
                 target.spriteRenderer.sharedMaterial = outlineMaterial;
             }
 
-            // 2. Prevent camera frustum culling flickering by expanding renderer bounds
-            if (target.spriteRenderer.sprite != null)
-            {
-                Bounds currentBounds = target.spriteRenderer.bounds;
-                currentBounds.Expand(boundsPadding);
-            }
-
-            // 3. Set individual property overrides using MaterialPropertyBlock
+            // 2. Set individual property overrides using MaterialPropertyBlock
             target.spriteRenderer.GetPropertyBlock(propertyBlock);
             propertyBlock.SetColor(OutlineColorID, target.outlineColor);
             propertyBlock.SetInt(OutlineThicknessID, globalThickness);
