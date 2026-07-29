@@ -47,10 +47,18 @@ public class GameManagerEditor : Editor
     SerializedProperty newSong;
     SerializedProperty musicManagerFallback;
     SerializedProperty songVolume;
+
+    // outline manager
+    SerializedProperty som;
+    SerializedProperty bombColor;
+    SerializedProperty taskColor;
+    SerializedProperty itemColor;
+    SerializedProperty enableOutlines;
     #endregion
 
     bool debugMode;
     bool nullReferences;
+    bool outlineManager;
 
     public void OnEnable()
     {
@@ -93,6 +101,13 @@ public class GameManagerEditor : Editor
         newSong = serializedObject.FindProperty("newSong");
         musicManagerFallback = serializedObject.FindProperty("musicManagerFallback");
         songVolume = serializedObject.FindProperty("songVolume");
+
+        // Outline Manager
+        bombColor = serializedObject.FindProperty("bombColor");
+        taskColor = serializedObject.FindProperty("taskColor");
+        itemColor = serializedObject.FindProperty("itemColor");
+        enableOutlines = serializedObject.FindProperty("enableOutlines");
+        som = serializedObject.FindProperty("som");
     }
 
     public override void OnInspectorGUI()
@@ -140,7 +155,16 @@ public class GameManagerEditor : Editor
                     EditorGUILayout.Space(5);
                     EditorGUILayout.LabelField("Other Stats", EditorStyles.boldLabel);
                     EditorGUILayout.PropertyField(timer);
+
                 }
+            }
+            EditorGUILayout.Space(5);
+            EditorGUILayout.PropertyField(enableOutlines);
+            if (_gm.enableOutlines)
+            {
+                EditorGUILayout.PropertyField(taskColor);
+                EditorGUILayout.PropertyField(bombColor);
+                EditorGUILayout.PropertyField(itemColor);
             }
 
         } 

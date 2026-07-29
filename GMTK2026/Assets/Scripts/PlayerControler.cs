@@ -38,9 +38,14 @@ public class PlayerControler : MonoBehaviour
     public string attribute;
     public float maxHoldBuffer; // tiny window, where you can't drop the item
     float holdBuffer;
+    public float maxTaskEndBuffer;
+    float taskEndBuffer;
+    public float maxTaskStartBuffer;
+    [HideInInspector]
+    public float taskStartBuffer;
 
     // tasks
-    [SerializeField] public bool doingTask;
+    public bool doingTask;
 
     // audio
     public AudioClip pickup;
@@ -96,12 +101,25 @@ public class PlayerControler : MonoBehaviour
             holdBuffer -= Time.deltaTime;
         }
 
+        if(taskEndBuffer > 0)
+        {
+            taskEndBuffer -= Time.deltaTime;
+        }
+
+        if (taskStartBuffer > 0)
+        {
+            taskStartBuffer -= Time.deltaTime;
+        }
+
         SetClosestInteractable();
 
-        Debug.Log($"Doing task: {doingTask}");
-        if ((Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.E)) && (doingTask == false))
+        if (holdingItem)
         {
-            Debug.Log("Searching!");
+            item.transform.position = handLoc.position;
+        }
+
+        if ((Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.E)) && (doingTask == false) && taskEndBuffer <= 0)
+        {
             if(tasksNear.Count > 0)
             {
                 if (holdingItem)
@@ -137,32 +155,6 @@ public class PlayerControler : MonoBehaviour
                 ItemDrop();
             }
         }
-        else if ((Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.E)))
-        {
-            Debug.Log("Doing Task");
-        }
-
-        /*  --------------------
-         *  OLD INTERACTION CODE
-         *  --------------------
-        if(holdingItem)
-        {
-            // while holding an item
-            item.transform.position = handLoc.position;
-            if ((Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.E)) && holdBuffer <= 0 && !taskNear)
-            {
-                ItemDrop();
-            }
-        }
-        else
-        {
-            // while not holding an item
-            if ((Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.E)) && itemsNear.Count != 0 && !taskNear)
-            {
-                ItemPickup();
-            }
-        }
-        */
     }
 
     void FixedUpdate()
@@ -209,9 +201,9 @@ public class PlayerControler : MonoBehaviour
 
         // set item as held
         item = nearestItem;
+        
         attribute = item.GetComponent<Item>().attribute;
         item.GetComponent<Item>().ItemGrabbed();
-
         audioS.PlayOneShot(pickup);
 
         holdingItem = true;
@@ -239,6 +231,7 @@ public class PlayerControler : MonoBehaviour
         // Open Near Tasks
         nearestItem.GetComponent<Task>().TurnOn();
         doingTask = true;
+        taskStartBuffer = maxTaskStartBuffer;
     }
 
     public void ItemEventInteract()
@@ -289,6 +282,7 @@ public class PlayerControler : MonoBehaviour
         {
             nearestItem.GetComponent<Task>().TurnOn();
             doingTask = true;
+            taskStartBuffer = maxTaskStartBuffer;
         }
     }
 
@@ -387,5 +381,10 @@ public class PlayerControler : MonoBehaviour
             tasksNear.Remove(newItem);
         }
         newItem.GetComponent<Task>().closestInteractable = false;
+    }
+
+    public void TaskEnd()
+    {
+        taskEndBuffer = maxTaskEndBuffer;
     }
 }

@@ -10,7 +10,7 @@ public class Computer : MonoBehaviour
 {
 
     public GameObject computerTask;
-    public Animator computerTaskAnim;
+    Animator computerTaskAnim;
 
     int state;
     // current state:
@@ -38,6 +38,16 @@ public class Computer : MonoBehaviour
 
     public GameObject usbFull;
     public Transform spawnpoint;
+    AudioSource audioS;
+    public AudioClip error;
+    public AudioClip login;
+
+    private void Start()
+    {
+        audioS = GetComponent<AudioSource>();
+        computerTask.GetComponent<ComputerTask>().headComputer = this;
+        computerTaskAnim = computerTask.GetComponent<Animator>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -49,7 +59,9 @@ public class Computer : MonoBehaviour
             {
                 computerTaskAnim.SetTrigger("Next");
                 inputField.text = "";
+                audioS.PlayOneShot(login);
                 SetState(1);
+                computerTaskAnim.SetBool("Open Computer", true);
             }
             else
             {
@@ -66,13 +78,13 @@ public class Computer : MonoBehaviour
             {
                 isTimer = false;
                 hickup = true;
+                audioS.PlayOneShot(error);
                 SetState(3);
             } else if(timer >= maxTimer)
             {
                 isTimer = false;
                 SetState(4);
             }
-            Debug.Log(timer);
         }
     }
 
@@ -123,5 +135,10 @@ public class Computer : MonoBehaviour
         state = newState;
         computerSR.sprite = computerUnplugged;
         if (computerTaskAnim.gameObject.activeSelf) { computerTaskAnim.SetInteger("State", newState); }
+    }
+
+    public void CancelOpenComputer()
+    {
+        computerTaskAnim.SetBool("Open Computer", false);
     }
 }

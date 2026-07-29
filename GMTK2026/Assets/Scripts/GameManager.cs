@@ -1,9 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-
-using TMPro;
+using static UnityEditor.Progress;
 
 public class GameManager : MonoBehaviour
 {
@@ -54,6 +55,13 @@ public class GameManager : MonoBehaviour
 
     public GameObject musicManagerFallback;
 
+    // outlines
+    SpriteOutlineManager som;
+    public Color itemColor;
+    public Color taskColor;
+    public Color bombColor;
+    public bool enableOutlines;
+
     private void Start()
     {
         audioS = gameObject.GetComponent<AudioSource>();
@@ -66,6 +74,7 @@ public class GameManager : MonoBehaviour
             deathScreen = FindDisabledWithTag("Death Screen");
             winScreen = FindDisabledWithTag("Win Screen");
             timeText = FindDisabledWithTag("Time Text").GetComponent<TextMeshProUGUI>();
+            som = gameObject.GetComponent<SpriteOutlineManager>();
         }
         
         if(GameObject.FindWithTag("Main Audio") == null)
@@ -105,6 +114,39 @@ public class GameManager : MonoBehaviour
         {
             musicManager.ChangeSong(newSong, songVolume);
         }
+
+        // outlines
+        if (enableOutlines)
+        {
+            foreach (var item in GetObjectsWithScript(typeof(Item)))
+            {
+                som.outlineObjects.Add(new SpriteOutlineManager.OutlineTarget
+                {
+                    spriteRenderer = item.GetComponent<SpriteRenderer>(),
+                    outlineColor = itemColor
+                });
+            }
+            foreach (var item in GetObjectsWithScript(typeof(Task)))
+            {
+                if(item.GetComponent<Task>().taskType == Task.taskTypes.bomb)
+                {
+                    som.outlineObjects.Add(new SpriteOutlineManager.OutlineTarget
+                    {
+                        spriteRenderer = item.GetComponentInChildren<SpriteRenderer>(),
+                        outlineColor = bombColor
+                    });
+                } else
+                {
+                    som.outlineObjects.Add(new SpriteOutlineManager.OutlineTarget
+                    {
+                        spriteRenderer = item.GetComponentInChildren<SpriteRenderer>(),
+                        outlineColor = taskColor
+                    });
+                }
+            }
+            som.ApplyOutlines();
+        }
+
     }
 
     public void Update()
@@ -293,6 +335,56 @@ public class GameManager : MonoBehaviour
             minimalBombTime = searchBomb;
         }
         #endregion
+    }
+
+    public List<GameObject> GetObjectsWithScript(System.Type scriptType)
+    {
+        List<GameObject> resultList = new List<GameObject>();
+
+        // Explicitly specify UnityEngine.Object to resolve the ambiguity
+        UnityEngine.Object[] foundObjects = UnityEngine.Object.FindObjectsOfType(scriptType, true);
+
+        foreach (UnityEngine.Object obj in foundObjects)
+        {
+            if (obj is Component component)
+            {
+                resultList.Add(component.gameObject);
+            }
+        }
+
+        return resultList;
+    }
+
+    public void AddOutlinedObject(string objectType, GameObject newObject)
+    {
+
+        switch (objectType) {
+            case "bomb":
+                som.outlineObjects.Add(new SpriteOutlineManager.OutlineTarget
+                {
+                    spriteRenderer = newObject.GetComponentInChildren<SpriteRenderer>(),
+                    outlineColor = bombColor
+                });
+                break;
+            case "item":
+                som.outlineObjects.Add(new SpriteOutlineManager.OutlineTarget
+                {
+                    spriteRenderer = newObject.GetComponent<SpriteRenderer>(),
+                    outlineColor = itemColor
+                });
+                break;
+            case "task":
+                som.outlineObjects.Add(new SpriteOutlineManager.OutlineTarget
+                {
+                    spriteRenderer = newObject.GetComponentInChildren<SpriteRenderer>(),
+                    outlineColor = taskColor
+                });
+                break;
+            default:
+                Debug.Log("Undefined object type for outline");
+                break;
+        }
+        som.ApplyOutlines();
     }
 
 }

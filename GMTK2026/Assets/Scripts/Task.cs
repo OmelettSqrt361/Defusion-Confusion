@@ -66,12 +66,11 @@ public class Task : MonoBehaviour
         animator.SetBool("Near", closestInteractable);
         if (isRunning)
         {
-            // if ((Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.E)) && !isRunning && !noZoomingOut) { TurnOn(); } else 
             if ((Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.E)) && isZoomed && !noZoomingOut)
             {
                 ZoomOut();
             }
-            else if ((Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.E)) && !noZoomingOut)
+            else if ((Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.E)) && !noZoomingOut && player.GetComponent<PlayerControler>().taskStartBuffer <= 0)
             {
                 TurnOff();
             }
@@ -86,7 +85,7 @@ public class Task : MonoBehaviour
 
             foreach (var tool in activeTools)
             {
-                if (tool.activeSelf)
+                if (tool.activeSelf && tool.tag != "TaskMessage")
                 {
                     tool.transform.localScale = new Vector2(mainToVRatio, mainToVRatio);
                 }
@@ -123,7 +122,9 @@ public class Task : MonoBehaviour
         mainCam.Priority = 0;
         gm.HideOverlayMenu();
 
-        if(hasAudio) { audiosS.PlayOneShot(clip); }
+        Debug.Log($"TurningOn: {gameObject.name}");
+
+        if (hasAudio) { audiosS.PlayOneShot(clip); }
 
         // tool handling
         for (int i = 0; i < toolNames.Length; i++) 
@@ -143,8 +144,12 @@ public class Task : MonoBehaviour
         isRunning = false;
         if (player != null && taskType != taskTypes.door)
         {
+            Debug.Log($"TurningOff: {gameObject.name}");
+
             taskMenu.SetActive(false);
-            player.GetComponent<PlayerControler>().doingTask = false;
+            PlayerControler pc = player.GetComponent<PlayerControler>();
+            pc.doingTask = false;
+            pc.TaskEnd();
             taskCam.Priority = 0;
             mainCam.Priority = 1;
             gm.ShowOverlayMenu();

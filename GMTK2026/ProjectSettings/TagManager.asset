@@ -13,6 +13,7 @@ TagManager:
   - Death Screen
   - Win Screen
   - Time Text
+  - Task Message
   layers:
   - Default
   - TransparentFX

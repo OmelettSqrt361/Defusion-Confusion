@@ -42,13 +42,13 @@ public class Item : MonoBehaviour
     {
         held = true;
         sr.sortingOrder = 0;
-        animator.SetTrigger("Hold");
+        animator.SetBool("Hold", true);
     }
 
     public void ItemDropped()
     {
         held = false;
         sr.sortingOrder = -3;
-        animator.SetTrigger("Hold");
+        animator.SetBool("Hold", false);
     }
 }
