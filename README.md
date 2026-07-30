@@ -1,2 +1,2 @@
-# GMTK2026
-The Unity files for the GMTK 2026 Game Jam
+# Defusion Confusion
+These are the unity files and scritps and everything that is being used to make the Defusion Confusion project.
