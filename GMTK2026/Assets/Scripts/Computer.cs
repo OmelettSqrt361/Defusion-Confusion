@@ -9,7 +9,7 @@ using JetBrains.Annotations;
 public class Computer : MonoBehaviour
 {
 
-    public GameObject computerTask;
+    GameObject computerTask;
     Animator computerTaskAnim;
 
     int state;
@@ -45,6 +45,8 @@ public class Computer : MonoBehaviour
     private void Start()
     {
         audioS = GetComponent<AudioSource>();
+        computerTask = gameObject.GetComponent<TaskMenuMain>().controler.gameObject;
+
         computerTask.GetComponent<ComputerTask>().headComputer = this;
         computerTaskAnim = computerTask.GetComponent<Animator>();
     }

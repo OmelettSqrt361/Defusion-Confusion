@@ -5,7 +5,12 @@ using UnityEngine;
 public class LockCaller : MonoBehaviour
 {
     public Lock lockObject;
-    public Task lockTask;
+    Task lockTask;
+
+    private void Start()
+    {
+        lockTask = gameObject.GetComponent<TaskMenuMain>().controler;
+    }
 
     void AnimEnd()
     {

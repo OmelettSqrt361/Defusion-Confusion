@@ -10,12 +10,13 @@ public class ScrewCover : MonoBehaviour
     [HideInInspector]
     public int screwsUnsrewed;
     Animator animator;
-    public Task task;
+    Task task;
 
     bool done;
 
     void Start()
     {
+        task = gameObject.GetComponentInParent<TaskMenuMain>().controler;
         animator = GetComponent<Animator>();
     }
 

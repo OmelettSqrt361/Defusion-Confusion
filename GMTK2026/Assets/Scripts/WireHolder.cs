@@ -18,6 +18,7 @@ public class WireHolder : MonoBehaviour
     void Start()
     {
         gm = GameObject.FindWithTag("GameController").GetComponent<GameManager>();
+        bomb = gameObject.GetComponentInParent<TaskMenuMain>().controler.gameObject.GetComponent<Bomb>();
     }
 
     // Update is called once per frame

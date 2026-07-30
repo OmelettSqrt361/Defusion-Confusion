@@ -24,9 +24,11 @@ public class Task : MonoBehaviour
     [SerializeField] CinemachineVirtualCamera zoomCam;
 
     [SerializeField] GameObject[] zoomButtons;
+    public bool hasTaskMenu;
+    public GameObject taskMenuPrefab;
     public GameObject taskMenu;
     [SerializeField] bool isRunning = false;
-    [SerializeField]  bool isZoomed = false;
+    [SerializeField] bool isZoomed = false;
 
     // Tool usage
     public string[] toolNames;
@@ -44,24 +46,36 @@ public class Task : MonoBehaviour
     [SerializeField] bool noZoomingOut;
 
     public Door door;
+    public GameObject taskCanvas;
 
     void Start()
     {
-        if (taskType == taskTypes.bomb)
-        {
-            b = this.gameObject.GetComponent<Bomb>();
-        }
+        // get all necessary components
         mainCam = GameObject.FindWithTag("MainVCamera").GetComponent<CinemachineVirtualCamera>();
         player = GameObject.FindWithTag("Player");
         taskCam = gameObject.GetComponentInChildren<CinemachineVirtualCamera>();
         animator = gameObject.GetComponent<Animator>();
-        if (taskMenu != null) { zoomButtons = GetChildrenWithTag(taskMenu, "Zoom"); }
         gm = GameObject.FindWithTag("GameController").GetComponent<GameManager>();
+        taskCanvas = GameObject.FindWithTag("Task Canvas");
+
+        // create a task menu
+        if (hasTaskMenu)
+        {
+            taskMenu = Instantiate(taskMenuPrefab, new Vector3(taskCam.gameObject.transform.position.x, taskCam.gameObject.transform.position.y, 0), Quaternion.identity, taskCanvas.transform);
+            taskMenu.GetComponent<TaskMenuMain>().controler = this;
+            toolsToActivate = GetMatchingChildren(taskMenu, toolNames);
+            zoomButtons = GetChildrenWithTag(taskMenu, "Zoom");
+        }
+
+        // handle audio
         if (hasAudio) { audiosS = gameObject.GetComponent<AudioSource>(); }
+        // handle doors
+        if (taskType == taskTypes.door) { door = gameObject.GetComponent<Door>(); }
+        // handle bombs
+        if (taskType == taskTypes.bomb) { b = this.gameObject.GetComponent<Bomb>(); }
+
+        // initial variables
         noZoomingOut = false;
-
-        if (taskType == taskTypes.door) { door = gameObject.GetComponent<Door>(); } 
-
         activeTools.Clear();
     }
 
@@ -227,5 +241,36 @@ public class Task : MonoBehaviour
     public void Defuse()
     {
         if (b != null) { b.Defuse(true); }
+    }
+
+    public GameObject[] GetMatchingChildren(GameObject targetParent, string[] targetNames)
+    {
+        // Safety check: if inputs are invalid, return null
+        if (targetParent == null || targetNames == null)
+        {
+            Debug.LogWarning("Target Parent or targetNames array is null.");
+            return null;
+        }
+
+        // Initialize array with the same length as targetNames (defaults to null for all elements)
+        GameObject[] matchedObjects = new GameObject[targetNames.Length];
+
+        // Loop through direct children only
+        foreach (Transform child in targetParent.transform)
+        {
+            for (int i = 0; i < targetNames.Length; i++)
+            {
+                if (string.IsNullOrEmpty(targetNames[i]))
+                    continue;
+
+                // Case-insensitive match
+                if (child.name.Equals(targetNames[i], System.StringComparison.OrdinalIgnoreCase))
+                {
+                    matchedObjects[i] = child.gameObject;
+                }
+            }
+        }
+
+        return matchedObjects;
     }
 }

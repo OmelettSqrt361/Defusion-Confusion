@@ -25,6 +25,9 @@ public class TaskEditor : Editor
     SerializedProperty taskCam;
     SerializedProperty zoomCam;
     SerializedProperty zoomButtons;
+
+    SerializedProperty hasTaskMenu;
+    SerializedProperty taskMenuPrefab;
     SerializedProperty taskMenu;
     SerializedProperty isRunning;
     SerializedProperty isZoomed;
@@ -66,6 +69,8 @@ public class TaskEditor : Editor
         taskCam = serializedObject.FindProperty("taskCam");
         zoomCam = serializedObject.FindProperty("zoomCam");
         zoomButtons = serializedObject.FindProperty("zoomButtons");
+        taskMenuPrefab = serializedObject.FindProperty("taskMenuPrefab");
+        hasTaskMenu = serializedObject.FindProperty("hasTaskMenu");
         taskMenu = serializedObject.FindProperty("taskMenu");
         isRunning = serializedObject.FindProperty("isRunning");
         isZoomed = serializedObject.FindProperty("isZoomed");
@@ -99,9 +104,10 @@ public class TaskEditor : Editor
         {
             EditorGUILayout.PropertyField(doorTask);
         }
-        if (_task.taskType != Task.taskTypes.door || _task.doorTask == true)
+        EditorGUILayout.PropertyField(hasTaskMenu);
+        if (_task.hasTaskMenu)
         {
-            EditorGUILayout.PropertyField(taskMenu);
+            EditorGUILayout.PropertyField(taskMenuPrefab);
             if (_task.taskMenu == null)
             {
                 EditorGUILayout.HelpBox("No Task Menu found!", MessageType.Warning);

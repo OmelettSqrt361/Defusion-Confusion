@@ -57,22 +57,27 @@ Shader "Custom/GrayscalePaletteRemap"
                 fixed4 texCol = tex2D(_MainTex, IN.texcoord);
                 fixed4 finalCol = texCol;
 
-                // Loop through specified mapping rules
                 for (int i = 0; i < _MappingCount; i++)
                 {
-                    // Calculate RGB distance between texture pixel and source color
                     float dist = distance(texCol.rgb, _SourceColors[i].rgb);
-
                     if (dist <= _Tolerances[i])
                     {
                         finalCol.rgb = _TargetColors[i].rgb;
-                        break; // Stop after first matched color
+                        break;
                     }
                 }
 
-                // Apply vertex tint & alpha premultiplication
+                // Apply vertex tint & alpha
                 finalCol.a *= IN.color.a;
                 finalCol.rgb *= IN.color.rgb;
+
+                // Premultiply — REQUIRED for `Blend One OneMinusSrcAlpha`.
+                // Without this, semi-transparent edge pixels contribute too much
+                // of their own RGB relative to their alpha, producing fringing/outline
+                // artifacts wherever the sprite's alpha isn't fully 0 or 1 (i.e. at
+                // anti-aliased edges — exactly the seams you're seeing between tiles).
+                finalCol.rgb *= finalCol.a;
+
                 return finalCol;
             }
         ENDCG
