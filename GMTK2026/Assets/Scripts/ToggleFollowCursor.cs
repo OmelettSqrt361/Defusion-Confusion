@@ -9,6 +9,7 @@ public class ToggleFollowCursor : MonoBehaviour, IPointerClickHandler, IBeginDra
     private bool isFollowing = false;
     private RectTransform rectTransform;
     private Canvas canvas;
+    private RectTransform canvasRectTransform; // stable plane reference
     private CanvasGroup canvasGroup;
 
     public string attribute;
@@ -17,8 +18,15 @@ public class ToggleFollowCursor : MonoBehaviour, IPointerClickHandler, IBeginDra
     void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
-        canvas = GetComponentInParent<Canvas>();
+        canvas = GetComponentInParent<Canvas>().rootCanvas;
+        canvasRectTransform = canvas.GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
+
+        if (canvas.renderMode != RenderMode.ScreenSpaceOverlay && canvas.worldCamera == null)
+        {
+            Debug.LogError($"[{nameof(ToggleFollowCursor)}] Canvas '{canvas.name}' has no Render Camera assigned. " +
+                            "World-space follow-cursor math will be wrong (huge offsets) until this is set.", canvas);
+        }
 
         GameObject gc = GameObject.FindWithTag("GameController");
         if (gc != null)
@@ -31,11 +39,16 @@ public class ToggleFollowCursor : MonoBehaviour, IPointerClickHandler, IBeginDra
     {
         if (isFollowing)
         {
-            // Follow cursor position
+            // Project the screen point onto the CANVAS's plane, not the
+            // item's own RectTransform. Projecting onto the dragged item's
+            // own rect creates a feedback loop (the plane moves/rotates as
+            // the item moves), which is what produces the "weird coordinate"
+            // drift/jumping. The canvas's RectTransform is a stable plane
+            // for a World Space canvas, so this gives consistent results.
             if (RectTransformUtility.ScreenPointToWorldPointInRectangle(
-                rectTransform,
+                canvasRectTransform,
                 Input.mousePosition,
-                canvas.renderMode == RenderMode.ScreenSpaceOverlay ? null : canvas.worldCamera,
+                canvas.worldCamera,
                 out Vector3 worldPoint))
             {
                 transform.position = worldPoint;

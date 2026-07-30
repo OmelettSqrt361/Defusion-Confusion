@@ -35,12 +35,15 @@ public class Task : MonoBehaviour
 
     // Deactivation
     public bool noninteractable = false;
+    public bool doorTask = false;
 
     [SerializeField] AudioSource audiosS;
     public bool hasAudio;
     public AudioClip clip;
 
     [SerializeField] bool noZoomingOut;
+
+    public Door door;
 
     void Start()
     {
@@ -56,6 +59,8 @@ public class Task : MonoBehaviour
         gm = GameObject.FindWithTag("GameController").GetComponent<GameManager>();
         if (hasAudio) { audiosS = gameObject.GetComponent<AudioSource>(); }
         noZoomingOut = false;
+
+        if (taskType == taskTypes.door) { door = gameObject.GetComponent<Door>(); } 
 
         activeTools.Clear();
     }
@@ -115,26 +120,32 @@ public class Task : MonoBehaviour
 
     public void TurnOn()
     {
-        isRunning = true;
-        taskMenu.SetActive(true);
-        player.GetComponent<PlayerControler>().doingTask = true;
-        taskCam.Priority = 1;
-        mainCam.Priority = 0;
-        gm.HideOverlayMenu();
+        if(taskType != taskTypes.door || doorTask == true)
+        {
+            isRunning = true;
+            taskMenu.SetActive(true);
+            player.GetComponent<PlayerControler>().doingTask = true;
+            taskCam.Priority = 1;
+            mainCam.Priority = 0;
+            gm.HideOverlayMenu();
 
-        Debug.Log($"TurningOn: {gameObject.name}");
+            Debug.Log($"TurningOn: {gameObject.name}");
 
-        if (hasAudio) { audiosS.PlayOneShot(clip); }
+            if (hasAudio) { audiosS.PlayOneShot(clip); }
 
-        // tool handling
-        for (int i = 0; i < toolNames.Length; i++) 
-        { 
-            if(toolNames[i] == player.GetComponent<PlayerControler>().attribute)
+            // tool handling
+            for (int i = 0; i < toolNames.Length; i++)
             {
-                Debug.Log($"Spawning: {toolNames[i]}");
-                toolsToActivate[i].SetActive(true);
-                activeTools.Add(toolsToActivate[i]);
+                if (toolNames[i] == player.GetComponent<PlayerControler>().attribute)
+                {
+                    Debug.Log($"Spawning: {toolNames[i]}");
+                    toolsToActivate[i].SetActive(true);
+                    activeTools.Add(toolsToActivate[i]);
+                }
             }
+        } else if (taskType == taskTypes.door) // when door task is done, just teleport
+        {
+            door.Teleport();
         }
 
     }

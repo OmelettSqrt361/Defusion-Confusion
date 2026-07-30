@@ -9,12 +9,14 @@ public class Door : MonoBehaviour
     BlackScreen bScreen;
     Task lockTask;
     Animator animator;
-    bool isNear;
 
     public Transform teleportDest;
 
     AudioSource audioS;
     public AudioClip teleportationSfx;
+
+    public float maxTeleportBuffer;
+    float teleportBuffer;
 
 
     void Start()
@@ -27,27 +29,43 @@ public class Door : MonoBehaviour
         {
             Unlock();
         }
+        lockTask.door = this;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        isNear = lockTask.closestInteractable;
-        if (isNear == true && (Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.E)) && !isLocked)
+        if(teleportBuffer > 0)
+        {
+            teleportBuffer -= Time.deltaTime;
+        }
+    }
+
+    public void Unlock()
+    { 
+        lockTask.TurnOff();
+        animator.SetBool("Open", true);
+        lockTask.taskType = Task.taskTypes.door;
+        isLocked = false;
+        lockTask.doorTask = false;
+    }
+
+    public void Teleport()
+    {
+        if (!isLocked && teleportBuffer <= 0)
         {
             audioS.PlayOneShot(teleportationSfx);
             bScreen.TurnOn(blackScreenTime);
             lockTask.player.transform.position = teleportDest.position;
             Debug.Log("Teleport");
+            teleportBuffer = maxTeleportBuffer;
         }
     }
 
-    public void Unlock()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        lockTask.TurnOff();
-        lockTask.noninteractable = true;
-        animator.SetBool("Open", true);
-        lockTask.taskType = Task.taskTypes.door;
-        isLocked = false;
+        if(collision.gameObject.CompareTag("Player") && !isLocked && teleportBuffer <= 0)
+        {
+            Teleport();
+        }
     }
 }

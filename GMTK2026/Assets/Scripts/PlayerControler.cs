@@ -230,7 +230,6 @@ public class PlayerControler : MonoBehaviour
 
         // Open Near Tasks
         nearestItem.GetComponent<Task>().TurnOn();
-        doingTask = true;
         taskStartBuffer = maxTaskStartBuffer;
     }
 
@@ -281,7 +280,6 @@ public class PlayerControler : MonoBehaviour
         else // If it's a task turn it on
         {
             nearestItem.GetComponent<Task>().TurnOn();
-            doingTask = true;
             taskStartBuffer = maxTaskStartBuffer;
         }
     }
@@ -311,7 +309,8 @@ public class PlayerControler : MonoBehaviour
         // Check Tasks
         foreach (var i in tasksNear)
         {
-            if (!i.GetComponent<Task>().noninteractable)
+            Task iTask = i.GetComponent<Task>();
+            if (!iTask.noninteractable)
             {
                 // distance calculation
                 float dist = Mathf.Sqrt(

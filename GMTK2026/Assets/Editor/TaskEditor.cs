@@ -38,6 +38,7 @@ public class TaskEditor : Editor
     SerializedProperty audiosS;
     SerializedProperty hasAudio;
     SerializedProperty clip;
+    SerializedProperty doorTask;
     SerializedProperty noZoomingOut;
     #endregion
 
@@ -75,6 +76,8 @@ public class TaskEditor : Editor
 
         // Deactivation & Audio
         noninteractable = serializedObject.FindProperty("noninteractable");
+        doorTask = serializedObject.FindProperty("doorTask");
+
         audiosS = serializedObject.FindProperty("audiosS");
         hasAudio = serializedObject.FindProperty("hasAudio");
         clip = serializedObject.FindProperty("clip");
@@ -92,7 +95,11 @@ public class TaskEditor : Editor
 
         EditorGUILayout.Space(5);
         EditorGUILayout.LabelField("Task Menu Attributes", EditorStyles.boldLabel);
-        if (_task.taskType != Task.taskTypes.door)
+        if(_task.taskType == Task.taskTypes.door)
+        {
+            EditorGUILayout.PropertyField(doorTask);
+        }
+        if (_task.taskType != Task.taskTypes.door || _task.doorTask == true)
         {
             EditorGUILayout.PropertyField(taskMenu);
             if (_task.taskMenu == null)
