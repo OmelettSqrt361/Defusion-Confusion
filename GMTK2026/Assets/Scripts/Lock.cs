@@ -9,7 +9,7 @@ public class Lock : MonoBehaviour
     Button activator;
     public string attribute;
     Animator animator;
-    public Door door;
+    Door door;
 
     // Start is called before the first frame update
     void Start()
@@ -17,6 +17,7 @@ public class Lock : MonoBehaviour
         gm = GameObject.FindWithTag("GameController").GetComponent<GameManager>();
         activator = GetComponent<Button>();
         animator = GetComponentInParent<Animator>();
+        door = GetComponentInParent<TaskMenuMain>().controler.gameObject.GetComponent<Door>();
     }
 
     // Update is called once per frame

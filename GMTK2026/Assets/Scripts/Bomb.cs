@@ -56,7 +56,7 @@ public class Bomb : MonoBehaviour
 
             slider.value = percent;
             countDown.text = showTimer.ToString();
-            lCDScreen.text = lcdScreen;
+            if (lCDScreen != null) { lCDScreen.text = lcdScreen; }
 
             if (timer <= 0 && !done)
             { 
