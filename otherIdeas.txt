@@ -1,0 +1,20 @@
+Add texboxes
+> show textboxes in an inbetween levels world?
+> standard head and text appearing
+> Use for tutorial
+
+Settings menu
+> Change the outline thickness
+> Sounds/Music
+> Rebind keys
+> Use only mouse (test for mobile version)
+
+Tutorial level
+> Make a level to quickly explain everything using textboxes / popup directions
+> At most a minute or two
+
+Custom font
+> Custom raster font for displaying the quirky style that is set in the game
+
+Add new levels
+> selfexplanatory

@@ -1,4 +1,34 @@
-player charcater sprite size: 256
-brush stroke size: 10px
+Art Directions:
+> Simplistic Flash-inspired
+> Normal sprites 256x256
+> Interactable objects: pure black 10px outline
+> Non-interactables: lighter outline 10px
+> Details: 5px outline
 
-due to programming shenanigans, task hitboxes cannot collide
+>Tilesets:
+>> 256x208 is one tile
+>> tile apsect ratio 16:13
+>> all levels are from a topdown, kidna cubist perspective
+
+Making a Level:
+> Levels have to have a GameManager Script
+> Each level has a bomb and tasks
+> Goal is to dismantle all bombs using items and tasks
+
+Step 1:
+> Add in GameManager, DeathScreen, WinScreen and give proper tags
+> Add the mainWorld empty object to hold the scene
+> Add in 3 canvases: Hideable Overlay, Non-hideable overlay and task canvas
+
+Step 2:
+> Create the mainWorld object with the background for floors and walls
+> Decorations in the decoration tab
+> Wall object that holds some objects with box coliders for level boundaries
+
+Step 3:
+> Add player and hook up
+>> Add the main Camera and a camera confier object, so that out of bounds is still texterued
+with some padding
+
+Step 4:
+> Add tasks and hookup bombs

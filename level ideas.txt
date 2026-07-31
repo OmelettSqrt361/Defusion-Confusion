@@ -1,0 +1,61 @@
+--- full levels ---
+Metro:
+ > Two boms, one is on the metro
+ > the metro comes and goes away on set intervals so you have to
+   go in and out to reset the bomb timer
+
+Manor:
+  > you have to entertain the guests at the manor or lose
+  > would require new losing screens
+  > bomb requires you to make an omelette (the task will have you scramble like in
+  overcooked)
+
+Hospital:
+ > You have to cut out the heart of one of the patients and transplant it
+
+Power Plant
+ > The lights turn on and off and you have to manage that
+ >> Maybe more levels with this mechanic idk
+
+Magic School?
+ > A level where there are moving platforms
+ > Could be magic floors or smth idk
+
+--- Gimmick levels ---
+
+Simple bobms
+ > There are a lot of very simple bobms and you have to take care of them
+
+Tunnel
+ > There is just one bomb with a super long timer and you have to get to it
+   and then the defusion is super duper simple (press a button)
+
+"The people who put the bombs there" HQ
+ > A story level, where you learn some things that about the lore
+
+
+--- Cool ideas ---
+
+Calculator bomb
+  > One of your tools (a calculator), needed to solve a bomb turns into
+    a bomb itself
+
+Goblins?
+  > Little fellows who steal stuff from you (and move the bomb around)
+
+Pool
+  > You can swim, but you can't have an item
+  > There is a boat that requires a task to complete
+
+Slide card
+  > You have to carry a card with you to get through doors
+
+Good bomb?
+  > You can make a bomb yourself / pick up a bomb and blow it to break a wall
+
+Item repair
+  > You get a broken item and you have to go to a table to repair it
+
+--------
+I'd like for all levels and gimmick to be intertwined, so there isn't a single
+gimmick, that would appear only once, but it has to creativly interact with the others
