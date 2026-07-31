@@ -1,4 +1,4 @@
-# 💣 Defusion Confusion
+# Defusion Confusion
 
 A top-down 2D "bomb-defusal" game made in Unity for the **GMTK Game Jam 2026**. Run around a room, pick up tools, and complete a string of frantic mini-tasks (cut the right wires, unscrew a panel, crack a keypad, plug in a USB, pick a lock...) before the timer on one or more bombs hits zero.
 
