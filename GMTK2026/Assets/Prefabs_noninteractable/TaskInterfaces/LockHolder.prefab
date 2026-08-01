@@ -592,7 +592,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attribute: key
-  door: {fileID: 0}
 --- !u!1 &3602304431560479742
 GameObject:
   m_ObjectHideFlags: 0

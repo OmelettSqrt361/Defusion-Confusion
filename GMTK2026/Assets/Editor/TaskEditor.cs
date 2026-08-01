@@ -132,16 +132,13 @@ public class TaskEditor : Editor
             }
         }
 
-        if (_task.taskType != Task.taskTypes.door)
+        EditorGUILayout.PropertyField(hasAudio, new GUIContent("Has On-Open Audio"));
+        if (_task.hasAudio)
         {
-            EditorGUILayout.PropertyField(hasAudio, new GUIContent("Has On-Open Audio"));
-            if (_task.hasAudio)
+            EditorGUILayout.PropertyField(clip);
+            if (clip == null)
             {
-                EditorGUILayout.PropertyField(clip);
-                if (clip == null)
-                {
                     EditorGUILayout.HelpBox("No sound clip provided!", MessageType.Warning);
-                }
             }
         }
 

@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEditor.Progress;
 
 public class GameManager : MonoBehaviour
 {
@@ -67,7 +66,7 @@ public class GameManager : MonoBehaviour
         audioS = gameObject.GetComponent<AudioSource>();
 
         // only main level scenePropreties
-        if(sceneType == sceneTypes.Level)
+        if (sceneType == sceneTypes.Level)
         {
             playerControler = GameObject.FindWithTag("Player").GetComponent<PlayerControler>();
             overlayMenu = GameObject.FindWithTag("Hideable Overlay");
@@ -76,8 +75,8 @@ public class GameManager : MonoBehaviour
             timeText = FindDisabledWithTag("Time Text").GetComponent<TextMeshProUGUI>();
             som = gameObject.GetComponent<SpriteOutlineManager>();
         }
-        
-        if(GameObject.FindWithTag("Main Audio") == null)
+
+        if (GameObject.FindWithTag("Main Audio") == null)
         {
             GameObject newManager = Instantiate(musicManagerFallback, gameObject.transform.position, Quaternion.identity);
             musicManager = newManager.GetComponent<MusicManager>();
@@ -96,7 +95,7 @@ public class GameManager : MonoBehaviour
         if (sceneType == sceneTypes.Level) { playerControler.notBegun = true; }
 
 
-        if(sceneType == sceneTypes.Level)
+        if (sceneType == sceneTypes.Level)
         {
             int iterator = int.MinValue;
             foreach (var bomb in bombs)
@@ -116,30 +115,35 @@ public class GameManager : MonoBehaviour
         }
 
         // outlines
-        if (enableOutlines)
+        // Guarded with sceneType == Level because `som` is only ever assigned
+        // above when sceneType == Level -- without this guard, checking
+        // enableOutlines on a MainMenu/Storyboard GameManager would throw a
+        // NullReferenceException on som.outlineObjects.Add below.
+        if (enableOutlines && sceneType == sceneTypes.Level)
         {
             foreach (var item in GetObjectsWithScript(typeof(Item)))
             {
                 som.outlineObjects.Add(new SpriteOutlineManager.OutlineTarget
                 {
-                    spriteRenderer = item.GetComponent<SpriteRenderer>(),
+                    meshGrid = item.GetComponent<SpriteMeshGrid>(),
                     outlineColor = itemColor
                 });
             }
             foreach (var item in GetObjectsWithScript(typeof(Task)))
             {
-                if(item.GetComponent<Task>().taskType == Task.taskTypes.bomb)
+                if (item.GetComponent<Task>().taskType == Task.taskTypes.bomb)
                 {
                     som.outlineObjects.Add(new SpriteOutlineManager.OutlineTarget
                     {
-                        spriteRenderer = item.GetComponentInChildren<SpriteRenderer>(),
+                        meshGrid = item.GetComponentInChildren<SpriteMeshGrid>(),
                         outlineColor = bombColor
                     });
-                } else
+                }
+                else
                 {
                     som.outlineObjects.Add(new SpriteOutlineManager.OutlineTarget
                     {
-                        spriteRenderer = item.GetComponentInChildren<SpriteRenderer>(),
+                        meshGrid = item.GetComponentInChildren<SpriteMeshGrid>(),
                         outlineColor = taskColor
                     });
                 }
@@ -234,7 +238,7 @@ public class GameManager : MonoBehaviour
 
         // delete all bombs
         foreach (var bomb in bombs)
-        { 
+        {
             bomb.gameObject.SetActive(false);
         }
 
@@ -242,7 +246,7 @@ public class GameManager : MonoBehaviour
         GameObject.FindWithTag("Main Audio").GetComponent<AudioSource>().Stop();
         audioS.Stop();
         StopAllAudio();
-        
+
         audioS.volume = maxVolume;
         audioS.PlayOneShot(boom);
 
@@ -257,7 +261,7 @@ public class GameManager : MonoBehaviour
         foreach (AudioSource audioSource in allAudioSources)
         {
 
-            if(audioSource != audioS && audioSource.gameObject.tag != "Main Audio")
+            if (audioSource != audioS && audioSource.gameObject.tag != "Main Audio")
             {
                 audioSource.Stop();
             }
@@ -358,25 +362,26 @@ public class GameManager : MonoBehaviour
     public void AddOutlinedObject(string objectType, GameObject newObject)
     {
 
-        switch (objectType) {
+        switch (objectType)
+        {
             case "bomb":
                 som.outlineObjects.Add(new SpriteOutlineManager.OutlineTarget
                 {
-                    spriteRenderer = newObject.GetComponentInChildren<SpriteRenderer>(),
+                    meshGrid = newObject.GetComponentInChildren<SpriteMeshGrid>(),
                     outlineColor = bombColor
                 });
                 break;
             case "item":
                 som.outlineObjects.Add(new SpriteOutlineManager.OutlineTarget
                 {
-                    spriteRenderer = newObject.GetComponent<SpriteRenderer>(),
+                    meshGrid = newObject.GetComponent<SpriteMeshGrid>(),
                     outlineColor = itemColor
                 });
                 break;
             case "task":
                 som.outlineObjects.Add(new SpriteOutlineManager.OutlineTarget
                 {
-                    spriteRenderer = newObject.GetComponentInChildren<SpriteRenderer>(),
+                    meshGrid = newObject.GetComponentInChildren<SpriteMeshGrid>(),
                     outlineColor = taskColor
                 });
                 break;
