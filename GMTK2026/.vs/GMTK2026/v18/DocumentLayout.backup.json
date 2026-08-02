@@ -3,36 +3,52 @@
   "WorkspaceRootPath": "C:\\Users\\jk\\Coding\\games\\GMTK2026\\GMTK2026\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9F114C9F-B7FA-09E0-3238-45BE10E6065D}|Assembly-CSharp.csproj|c:\\users\\jk\\coding\\games\\gmtk2026\\gmtk2026\\assets\\scripts\\spriteoutlinemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9F114C9F-B7FA-09E0-3238-45BE10E6065D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\spriteoutlinemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9F114C9F-B7FA-09E0-3238-45BE10E6065D}|Assembly-CSharp.csproj|c:\\users\\jk\\coding\\games\\gmtk2026\\gmtk2026\\assets\\fonts\\customfont\\nudgespriteglyphsy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F114C9F-B7FA-09E0-3238-45BE10E6065D}|Assembly-CSharp.csproj|solutionrelative:assets\\fonts\\customfont\\nudgespriteglyphsy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9F114C9F-B7FA-09E0-3238-45BE10E6065D}|Assembly-CSharp.csproj|c:\\users\\jk\\coding\\games\\gmtk2026\\gmtk2026\\assets\\scripts\\spritemeshgrid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{9F114C9F-B7FA-09E0-3238-45BE10E6065D}|Assembly-CSharp.csproj|c:\\users\\jk\\coding\\games\\gmtk2026\\gmtk2026\\assets\\scripts\\uispritemeshgrid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F114C9F-B7FA-09E0-3238-45BE10E6065D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\uispritemeshgrid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F114C9F-B7FA-09E0-3238-45BE10E6065D}|Assembly-CSharp.csproj|C:\\Users\\jk\\Coding\\games\\GMTK2026\\GMTK2026\\assets\\scripts\\spritemeshgrid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9F114C9F-B7FA-09E0-3238-45BE10E6065D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\spritemeshgrid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9F114C9F-B7FA-09E0-3238-45BE10E6065D}|Assembly-CSharp.csproj|c:\\users\\jk\\coding\\games\\gmtk2026\\gmtk2026\\assets\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{182F3912-DDDC-C27A-C4A6-C513C73B2F7E}|Assembly-CSharp-Editor.csproj|C:\\Users\\jk\\Coding\\games\\GMTK2026\\GMTK2026\\assets\\editor\\tightenspriteglyphs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{182F3912-DDDC-C27A-C4A6-C513C73B2F7E}|Assembly-CSharp-Editor.csproj|solutionrelative:assets\\editor\\tightenspriteglyphs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F114C9F-B7FA-09E0-3238-45BE10E6065D}|Assembly-CSharp.csproj|C:\\Users\\jk\\Coding\\games\\GMTK2026\\GMTK2026\\assets\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9F114C9F-B7FA-09E0-3238-45BE10E6065D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F114C9F-B7FA-09E0-3238-45BE10E6065D}|Assembly-CSharp.csproj|C:\\Users\\jk\\Coding\\games\\GMTK2026\\GMTK2026\\assets\\scripts\\spriteoutlinemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F114C9F-B7FA-09E0-3238-45BE10E6065D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\spriteoutlinemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9F114C9F-B7FA-09E0-3238-45BE10E6065D}|Assembly-CSharp.csproj|C:\\Users\\jk\\Coding\\games\\GMTK2026\\GMTK2026\\assets\\shadersandmaterials\\pixelperfectoutlinewobble.shader||{3B902123-F8A7-4915-9F01-361F908088D0}",
       "RelativeMoniker": "D:0:0:{9F114C9F-B7FA-09E0-3238-45BE10E6065D}|Assembly-CSharp.csproj|solutionrelative:assets\\shadersandmaterials\\pixelperfectoutlinewobble.shader||{3B902123-F8A7-4915-9F01-361F908088D0}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{9F114C9F-B7FA-09E0-3238-45BE10E6065D}|Assembly-CSharp.csproj|C:\\Users\\jk\\Coding\\games\\GMTK2026\\GMTK2026\\assets\\shadersandmaterials\\spritewobble.shader||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{9F114C9F-B7FA-09E0-3238-45BE10E6065D}|Assembly-CSharp.csproj|solutionrelative:assets\\shadersandmaterials\\spritewobble.shader||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F114C9F-B7FA-09E0-3238-45BE10E6065D}|Assembly-CSharp.csproj|C:\\Users\\jk\\Coding\\games\\GMTK2026\\GMTK2026\\assets\\fonts\\customfont\\handdrawntextrenderer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F114C9F-B7FA-09E0-3238-45BE10E6065D}|Assembly-CSharp.csproj|solutionrelative:assets\\fonts\\customfont\\handdrawntextrenderer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F114C9F-B7FA-09E0-3238-45BE10E6065D}|Assembly-CSharp.csproj|C:\\Users\\jk\\Coding\\games\\GMTK2026\\GMTK2026\\assets\\fonts\\customfont\\spritefontnameoverrides.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F114C9F-B7FA-09E0-3238-45BE10E6065D}|Assembly-CSharp.csproj|solutionrelative:assets\\fonts\\customfont\\spritefontnameoverrides.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{9F114C9F-B7FA-09E0-3238-45BE10E6065D}|Assembly-CSharp.csproj|C:\\Users\\jk\\Coding\\games\\GMTK2026\\GMTK2026\\assets\\shadersandmaterials\\wobble.cginc||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{9F114C9F-B7FA-09E0-3238-45BE10E6065D}|Assembly-CSharp.csproj|solutionrelative:assets\\shadersandmaterials\\wobble.cginc||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9F114C9F-B7FA-09E0-3238-45BE10E6065D}|Assembly-CSharp.csproj|c:\\users\\jk\\coding\\games\\gmtk2026\\gmtk2026\\assets\\shadersandmaterials\\spritewobble.shader||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{9F114C9F-B7FA-09E0-3238-45BE10E6065D}|Assembly-CSharp.csproj|solutionrelative:assets\\shadersandmaterials\\spritewobble.shader||{3B902123-F8A7-4915-9F01-361F908088D0}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{9F114C9F-B7FA-09E0-3238-45BE10E6065D}|Assembly-CSharp.csproj|C:\\Users\\jk\\Coding\\games\\GMTK2026\\GMTK2026\\assets\\shadersandmaterials\\pixelperfectoutline.shader||{3B902123-F8A7-4915-9F01-361F908088D0}",
       "RelativeMoniker": "D:0:0:{9F114C9F-B7FA-09E0-3238-45BE10E6065D}|Assembly-CSharp.csproj|solutionrelative:assets\\shadersandmaterials\\pixelperfectoutline.shader||{3B902123-F8A7-4915-9F01-361F908088D0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9F114C9F-B7FA-09E0-3238-45BE10E6065D}|Assembly-CSharp.csproj|C:\\Users\\jk\\Coding\\games\\GMTK2026\\GMTK2026\\assets\\bombtaskmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9F114C9F-B7FA-09E0-3238-45BE10E6065D}|Assembly-CSharp.csproj|solutionrelative:assets\\bombtaskmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{182F3912-DDDC-C27A-C4A6-C513C73B2F7E}|Assembly-CSharp-Editor.csproj|C:\\Users\\jk\\Coding\\games\\GMTK2026\\GMTK2026\\assets\\editor\\taskeditor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -45,6 +61,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{9F114C9F-B7FA-09E0-3238-45BE10E6065D}|Assembly-CSharp.csproj|C:\\Users\\jk\\Coding\\games\\GMTK2026\\GMTK2026\\assets\\scripts\\taskmenumain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9F114C9F-B7FA-09E0-3238-45BE10E6065D}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\taskmenumain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jk\\Coding\\games\\GMTK2026\\GMTK2026\\assets\\bombtaskmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\bombtaskmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -54,89 +74,145 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "GameManager.cs",
-              "DocumentMoniker": "C:\\Users\\jk\\Coding\\games\\GMTK2026\\GMTK2026\\Assets\\Scripts\\GameManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\GameManager.cs",
-              "ToolTip": "C:\\Users\\jk\\Coding\\games\\GMTK2026\\GMTK2026\\Assets\\Scripts\\GameManager.cs",
-              "RelativeToolTip": "Assets\\Scripts\\GameManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIsBAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-01T09:50:26.559Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "SpriteOutlineManager.cs",
-              "DocumentMoniker": "C:\\Users\\jk\\Coding\\games\\GMTK2026\\GMTK2026\\Assets\\Scripts\\SpriteOutlineManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\SpriteOutlineManager.cs",
-              "ToolTip": "C:\\Users\\jk\\Coding\\games\\GMTK2026\\GMTK2026\\Assets\\Scripts\\SpriteOutlineManager.cs",
-              "RelativeToolTip": "Assets\\Scripts\\SpriteOutlineManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAJAAAAAAAAAA==",
+              "Title": "NudgeSpriteGlyphsY.cs",
+              "DocumentMoniker": "C:\\Users\\jk\\Coding\\games\\GMTK2026\\GMTK2026\\Assets\\Fonts\\CustomFont\\NudgeSpriteGlyphsY.cs",
+              "RelativeDocumentMoniker": "Assets\\Fonts\\CustomFont\\NudgeSpriteGlyphsY.cs",
+              "ToolTip": "C:\\Users\\jk\\Coding\\games\\GMTK2026\\GMTK2026\\Assets\\Fonts\\CustomFont\\NudgeSpriteGlyphsY.cs",
+              "RelativeToolTip": "Assets\\Fonts\\CustomFont\\NudgeSpriteGlyphsY.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEgAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-01T09:50:02.986Z",
+              "WhenOpened": "2026-08-02T12:53:34.096Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "UISpriteMeshGrid.cs",
+              "DocumentMoniker": "C:\\Users\\jk\\Coding\\games\\GMTK2026\\GMTK2026\\Assets\\Scripts\\UISpriteMeshGrid.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\UISpriteMeshGrid.cs",
+              "ToolTip": "C:\\Users\\jk\\Coding\\games\\GMTK2026\\GMTK2026\\Assets\\Scripts\\UISpriteMeshGrid.cs",
+              "RelativeToolTip": "Assets\\Scripts\\UISpriteMeshGrid.cs",
+              "ViewState": "AgIAAG4AAAAAAAAAAAAowIkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-02T12:53:29.498Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "HandDrawnTextRenderer.cs",
+              "DocumentMoniker": "C:\\Users\\jk\\Coding\\games\\GMTK2026\\GMTK2026\\Assets\\Fonts\\CustomFont\\HandDrawnTextRenderer.cs",
+              "RelativeDocumentMoniker": "Assets\\Fonts\\CustomFont\\HandDrawnTextRenderer.cs",
+              "ToolTip": "C:\\Users\\jk\\Coding\\games\\GMTK2026\\GMTK2026\\Assets\\Fonts\\CustomFont\\HandDrawnTextRenderer.cs",
+              "RelativeToolTip": "Assets\\Fonts\\CustomFont\\HandDrawnTextRenderer.cs",
+              "ViewState": "AgIAAG0AAAAAAAAAAAAowJQAAAABAAAAAAAAAA==",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACySURBVDhPYxgFEHDjxY3/Xqvc/wtO5P1vvdji/40X1/9DpcBg3rm5cD4yGw6sF5v/bz7UAJZoAtIgw8ASUAAyGMpEYYMAI4gACb7P/wxmg4DuXM3/l5OvM4JsKz5cABVFBa6y7gyrgtZA9KCbig7wuYAJSpMNsBoA8gKIBnkBZiOIRmaHrQtBuMQTGGjNhxvBAk1AGhQTYAkoQHY2MhsOQNFotcgcbIPnSjfSo3FEAwYGAA95Yu3hOJS9AAAAAElFTkSuQmCC",
+              "WhenOpened": "2026-08-02T12:53:29.503Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "SpriteFontNameOverrides.cs",
+              "DocumentMoniker": "C:\\Users\\jk\\Coding\\games\\GMTK2026\\GMTK2026\\Assets\\Fonts\\CustomFont\\SpriteFontNameOverrides.cs",
+              "RelativeDocumentMoniker": "Assets\\Fonts\\CustomFont\\SpriteFontNameOverrides.cs",
+              "ToolTip": "C:\\Users\\jk\\Coding\\games\\GMTK2026\\GMTK2026\\Assets\\Fonts\\CustomFont\\SpriteFontNameOverrides.cs",
+              "RelativeToolTip": "Assets\\Fonts\\CustomFont\\SpriteFontNameOverrides.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAbAAAAAAAAAA==",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACySURBVDhPYxgFEHDjxY3/Xqvc/wtO5P1vvdji/40X1/9DpcBg3rm5cD4yGw6sF5v/bz7UAJZoAtIgw8ASUAAyGMpEYYMAI4gACb7P/wxmg4DuXM3/l5OvM4JsKz5cABVFBa6y7gyrgtZA9KCbig7wuYAJSpMNsBoA8gKIBnkBZiOIRmaHrQtBuMQTGGjNhxvBAk1AGhQTYAkoQHY2MhsOQNFotcgcbIPnSjfSo3FEAwYGAA95Yu3hOJS9AAAAAElFTkSuQmCC",
+              "WhenOpened": "2026-08-02T12:53:29.504Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "SpriteMeshGrid.cs",
               "DocumentMoniker": "C:\\Users\\jk\\Coding\\games\\GMTK2026\\GMTK2026\\Assets\\Scripts\\SpriteMeshGrid.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\SpriteMeshGrid.cs",
               "ToolTip": "C:\\Users\\jk\\Coding\\games\\GMTK2026\\GMTK2026\\Assets\\Scripts\\SpriteMeshGrid.cs",
               "RelativeToolTip": "Assets\\Scripts\\SpriteMeshGrid.cs",
-              "ViewState": "AgIAAIIAAAAAAAAAAAAmwJ0AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-01T09:31:04.029Z",
-              "EditorCaption": ""
+              "ViewState": "AgIAALIAAAAAAAAAAAAswLQAAAAqAAAAAAAAAA==",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACySURBVDhPYxgFEHDjxY3/Xqvc/wtO5P1vvdji/40X1/9DpcBg3rm5cD4yGw6sF5v/bz7UAJZoAtIgw8ASUAAyGMpEYYMAI4gACb7P/wxmg4DuXM3/l5OvM4JsKz5cABVFBa6y7gyrgtZA9KCbig7wuYAJSpMNsBoA8gKIBnkBZiOIRmaHrQtBuMQTGGjNhxvBAk1AGhQTYAkoQHY2MhsOQNFotcgcbIPnSjfSo3FEAwYGAA95Yu3hOJS9AAAAAElFTkSuQmCC",
+              "WhenOpened": "2026-08-02T12:53:29.505Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "TightenSpriteGlyphs.cs",
+              "DocumentMoniker": "C:\\Users\\jk\\Coding\\games\\GMTK2026\\GMTK2026\\Assets\\Editor\\TightenSpriteGlyphs.cs",
+              "RelativeDocumentMoniker": "Assets\\Editor\\TightenSpriteGlyphs.cs",
+              "ToolTip": "C:\\Users\\jk\\Coding\\games\\GMTK2026\\GMTK2026\\Assets\\Editor\\TightenSpriteGlyphs.cs",
+              "RelativeToolTip": "Assets\\Editor\\TightenSpriteGlyphs.cs",
+              "ViewState": "AgIAADQAAAAAAAAAAAAowE8AAAABAAAAAAAAAA==",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACySURBVDhPYxgFEHDjxY3/Xqvc/wtO5P1vvdji/40X1/9DpcBg3rm5cD4yGw6sF5v/bz7UAJZoAtIgw8ASUAAyGMpEYYMAI4gACb7P/wxmg4DuXM3/l5OvM4JsKz5cABVFBa6y7gyrgtZA9KCbig7wuYAJSpMNsBoA8gKIBnkBZiOIRmaHrQtBuMQTGGjNhxvBAk1AGhQTYAkoQHY2MhsOQNFotcgcbIPnSjfSo3FEAwYGAA95Yu3hOJS9AAAAAElFTkSuQmCC",
+              "WhenOpened": "2026-08-02T10:22:38.634Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "GameManager.cs",
+              "DocumentMoniker": "C:\\Users\\jk\\Coding\\games\\GMTK2026\\GMTK2026\\Assets\\Scripts\\GameManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\GameManager.cs",
+              "ToolTip": "C:\\Users\\jk\\Coding\\games\\GMTK2026\\GMTK2026\\Assets\\Scripts\\GameManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\GameManager.cs",
+              "ViewState": "AgIAAIMAAAAAAAAAAAAswJEAAABNAAAAAAAAAA==",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACySURBVDhPYxgFEHDjxY3/Xqvc/wtO5P1vvdji/40X1/9DpcBg3rm5cD4yGw6sF5v/bz7UAJZoAtIgw8ASUAAyGMpEYYMAI4gACb7P/wxmg4DuXM3/l5OvM4JsKz5cABVFBa6y7gyrgtZA9KCbig7wuYAJSpMNsBoA8gKIBnkBZiOIRmaHrQtBuMQTGGjNhxvBAk1AGhQTYAkoQHY2MhsOQNFotcgcbIPnSjfSo3FEAwYGAA95Yu3hOJS9AAAAAElFTkSuQmCC",
+              "WhenOpened": "2026-08-02T12:53:29.507Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "SpriteOutlineManager.cs",
+              "DocumentMoniker": "C:\\Users\\jk\\Coding\\games\\GMTK2026\\GMTK2026\\Assets\\Scripts\\SpriteOutlineManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\SpriteOutlineManager.cs",
+              "ToolTip": "C:\\Users\\jk\\Coding\\games\\GMTK2026\\GMTK2026\\Assets\\Scripts\\SpriteOutlineManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\SpriteOutlineManager.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAswDMAAABNAAAAAAAAAA==",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACySURBVDhPYxgFEHDjxY3/Xqvc/wtO5P1vvdji/40X1/9DpcBg3rm5cD4yGw6sF5v/bz7UAJZoAtIgw8ASUAAyGMpEYYMAI4gACb7P/wxmg4DuXM3/l5OvM4JsKz5cABVFBa6y7gyrgtZA9KCbig7wuYAJSpMNsBoA8gKIBnkBZiOIRmaHrQtBuMQTGGjNhxvBAk1AGhQTYAkoQHY2MhsOQNFotcgcbIPnSjfSo3FEAwYGAA95Yu3hOJS9AAAAAElFTkSuQmCC",
+              "WhenOpened": "2026-08-02T12:53:29.507Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "PixelPerfectOutlineWobble.shader",
               "DocumentMoniker": "C:\\Users\\jk\\Coding\\games\\GMTK2026\\GMTK2026\\Assets\\ShadersAndMaterials\\PixelPerfectOutlineWobble.shader",
               "RelativeDocumentMoniker": "Assets\\ShadersAndMaterials\\PixelPerfectOutlineWobble.shader",
               "ToolTip": "C:\\Users\\jk\\Coding\\games\\GMTK2026\\GMTK2026\\Assets\\ShadersAndMaterials\\PixelPerfectOutlineWobble.shader",
               "RelativeToolTip": "Assets\\ShadersAndMaterials\\PixelPerfectOutlineWobble.shader",
-              "ViewState": "AgIAAHkAAAAAAAAAAAAswJUAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002777|",
-              "WhenOpened": "2026-08-01T09:31:00.505Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-02T12:53:29.508Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "SpriteWobble.shader",
               "DocumentMoniker": "C:\\Users\\jk\\Coding\\games\\GMTK2026\\GMTK2026\\Assets\\ShadersAndMaterials\\SpriteWobble.shader",
               "RelativeDocumentMoniker": "Assets\\ShadersAndMaterials\\SpriteWobble.shader",
               "ToolTip": "C:\\Users\\jk\\Coding\\games\\GMTK2026\\GMTK2026\\Assets\\ShadersAndMaterials\\SpriteWobble.shader",
               "RelativeToolTip": "Assets\\ShadersAndMaterials\\SpriteWobble.shader",
-              "ViewState": "AgIAADkAAAAAAAAAAAAswFUAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAuwFYAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002777|",
-              "WhenOpened": "2026-08-01T09:31:00.508Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-02T12:53:29.509Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 10,
               "Title": "Wobble.cginc",
               "DocumentMoniker": "C:\\Users\\jk\\Coding\\games\\GMTK2026\\GMTK2026\\Assets\\ShadersAndMaterials\\Wobble.cginc",
               "RelativeDocumentMoniker": "Assets\\ShadersAndMaterials\\Wobble.cginc",
               "ToolTip": "C:\\Users\\jk\\Coding\\games\\GMTK2026\\GMTK2026\\Assets\\ShadersAndMaterials\\Wobble.cginc",
               "RelativeToolTip": "Assets\\ShadersAndMaterials\\Wobble.cginc",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFcAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABIAAAAAAAAAAAAmwBwAAABFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002777|",
-              "WhenOpened": "2026-08-01T09:31:00.512Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-02T12:53:29.51Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 11,
               "Title": "PixelPerfectOutline.shader",
               "DocumentMoniker": "C:\\Users\\jk\\Coding\\games\\GMTK2026\\GMTK2026\\Assets\\ShadersAndMaterials\\PixelPerfectOutline.shader",
               "RelativeDocumentMoniker": "Assets\\ShadersAndMaterials\\PixelPerfectOutline.shader",
@@ -144,11 +220,11 @@
               "RelativeToolTip": "Assets\\ShadersAndMaterials\\PixelPerfectOutline.shader",
               "ViewState": "AgIAAHEAAAAAAAAAAAAuwI0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002777|",
-              "WhenOpened": "2026-08-01T09:31:00.513Z"
+              "WhenOpened": "2026-08-02T12:53:29.51Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 12,
               "Title": "TaskEditor.cs",
               "DocumentMoniker": "C:\\Users\\jk\\Coding\\games\\GMTK2026\\GMTK2026\\Assets\\Editor\\TaskEditor.cs",
               "RelativeDocumentMoniker": "Assets\\Editor\\TaskEditor.cs",
@@ -160,7 +236,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 13,
               "Title": "Bomb.cs",
               "DocumentMoniker": "C:\\Users\\jk\\Coding\\games\\GMTK2026\\GMTK2026\\Assets\\Scripts\\Bomb.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Bomb.cs",
@@ -168,11 +244,11 @@
               "RelativeToolTip": "Assets\\Scripts\\Bomb.cs",
               "ViewState": "AgIAABcAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
               "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACySURBVDhPYxgFEHDjxY3/Xqvc/wtO5P1vvdji/40X1/9DpcBg3rm5cD4yGw6sF5v/bz7UAJZoAtIgw8ASUAAyGMpEYYMAI4gACb7P/wxmg4DuXM3/l5OvM4JsKz5cABVFBa6y7gyrgtZA9KCbig7wuYAJSpMNsBoA8gKIBnkBZiOIRmaHrQtBuMQTGGjNhxvBAk1AGhQTYAkoQHY2MhsOQNFotcgcbIPnSjfSo3FEAwYGAA95Yu3hOJS9AAAAAElFTkSuQmCC",
-              "WhenOpened": "2026-08-01T09:31:00.515Z"
+              "WhenOpened": "2026-08-02T12:53:29.512Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 14,
               "Title": "TaskMenuMain.cs",
               "DocumentMoniker": "C:\\Users\\jk\\Coding\\games\\GMTK2026\\GMTK2026\\Assets\\Scripts\\TaskMenuMain.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\TaskMenuMain.cs",
@@ -180,11 +256,11 @@
               "RelativeToolTip": "Assets\\Scripts\\TaskMenuMain.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-01T09:31:00.516Z"
+              "WhenOpened": "2026-08-02T12:53:29.513Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 15,
               "Title": "BombTaskMenu.cs",
               "DocumentMoniker": "C:\\Users\\jk\\Coding\\games\\GMTK2026\\GMTK2026\\Assets\\BombTaskMenu.cs",
               "RelativeDocumentMoniker": "Assets\\BombTaskMenu.cs",
@@ -192,7 +268,7 @@
               "RelativeToolTip": "Assets\\BombTaskMenu.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAeAAAAAAAAAA==",
               "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACySURBVDhPYxgFEHDjxY3/Xqvc/wtO5P1vvdji/40X1/9DpcBg3rm5cD4yGw6sF5v/bz7UAJZoAtIgw8ASUAAyGMpEYYMAI4gACb7P/wxmg4DuXM3/l5OvM4JsKz5cABVFBa6y7gyrgtZA9KCbig7wuYAJSpMNsBoA8gKIBnkBZiOIRmaHrQtBuMQTGGjNhxvBAk1AGhQTYAkoQHY2MhsOQNFotcgcbIPnSjfSo3FEAwYGAA95Yu3hOJS9AAAAAElFTkSuQmCC",
-              "WhenOpened": "2026-08-01T09:31:00.517Z"
+              "WhenOpened": "2026-08-02T11:53:44.992Z"
             }
           ]
         }
