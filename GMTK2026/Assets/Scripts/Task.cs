@@ -85,11 +85,11 @@ public class Task : MonoBehaviour
         animator.SetBool("Near", closestInteractable);
         if (isRunning)
         {
-            if ((Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.E)) && isZoomed && !noZoomingOut)
+            if (KeyBindingManager.Instance.IsInteractPressed() && isZoomed && !noZoomingOut)
             {
                 ZoomOut();
             }
-            else if ((Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.E)) && !noZoomingOut && player.GetComponent<PlayerControler>().taskStartBuffer <= 0)
+            else if (KeyBindingManager.Instance.IsInteractPressed() && !noZoomingOut && player.GetComponent<PlayerControler>().taskStartBuffer <= 0)
             {
                 TurnOff();
             }

@@ -22,6 +22,9 @@ public class HandDrawnTextRenderer : MonoBehaviour
     TMP_SpriteAsset _cachedAsset;
     Dictionary<string, int> _variantCounts;
 
+    [Header("Appearance")]
+    public Color textColor = Color.white;
+
     void OnEnable()
     {
         _text = GetComponent<TMP_Text>();
@@ -52,9 +55,10 @@ public class HandDrawnTextRenderer : MonoBehaviour
 
         if (asset == null) return;
 
-        // Make sure the TMP component is actually using this asset
         if (_text.spriteAsset != asset)
             _text.spriteAsset = asset;
+
+        _text.color = textColor;
 
         BuildVariantCountsIfNeeded(asset);
         _text.text = Parse(sourceText ?? string.Empty);
@@ -104,7 +108,7 @@ public class HandDrawnTextRenderer : MonoBehaviour
                 if (j > start)
                 {
                     string glyphName = input.Substring(start, j - start);
-                    sb.Append($"<sprite name=\"{glyphName}\">");
+                    sb.Append($"<sprite name=\"{glyphName}\" tint=\"1\">");
                     i = j;
                     continue;
                 }
@@ -144,7 +148,7 @@ public class HandDrawnTextRenderer : MonoBehaviour
                 spriteName = prefix;
             }
 
-            sb.Append($"<sprite name=\"{spriteName}\">");
+            sb.Append($"<sprite name=\"{spriteName}\" tint=\"1\">");
             i++;
         }
 

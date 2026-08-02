@@ -71,8 +71,8 @@ public class PlayerControler : MonoBehaviour
     void Update()
     {
         // input management
-        vertical = Input.GetAxisRaw("Vertical") * Time.deltaTime;
-        horizontal = Input.GetAxisRaw("Horizontal") * Time.deltaTime;
+        vertical = KeyBindingManager.Instance.GetVertical() * Time.deltaTime;
+        horizontal = KeyBindingManager.Instance.GetHorizontal() * Time.deltaTime;
 
         // movement logic
         moveDir = new Vector2 (horizontal, vertical);
@@ -118,7 +118,7 @@ public class PlayerControler : MonoBehaviour
             item.transform.position = handLoc.position;
         }
 
-        if ((Input.GetKeyDown(KeyCode.X) || Input.GetKeyDown(KeyCode.E)) && (doingTask == false) && taskEndBuffer <= 0)
+        if (KeyBindingManager.Instance.IsInteractPressed() && (doingTask == false) && taskEndBuffer <= 0)
         {
             if(tasksNear.Count > 0)
             {

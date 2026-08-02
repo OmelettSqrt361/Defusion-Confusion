@@ -175,8 +175,8 @@ MonoBehaviour:
     m_Unicode: 65534
     m_GlyphIndex: 16
     m_Scale: 1
-    m_Name: buttoE
-    m_HashCode: -396356067
+    m_Name: buttonE
+    m_HashCode: -194847565
   - m_ElementType: 2
     m_Unicode: 65534
     m_GlyphIndex: 17
@@ -1298,9 +1298,9 @@ MonoBehaviour:
     m_Metrics:
       m_Width: 48
       m_Height: 48
-      m_HorizontalBearingX: -8.5
+      m_HorizontalBearingX: -4.51
       m_HorizontalBearingY: 40
-      m_HorizontalAdvance: 34
+      m_HorizontalAdvance: 30
     m_GlyphRect:
       m_X: 336
       m_Y: 480
@@ -1613,9 +1613,9 @@ MonoBehaviour:
     m_Metrics:
       m_Width: 48
       m_Height: 48
-      m_HorizontalBearingX: -21.400002
+      m_HorizontalBearingX: -15.4
       m_HorizontalBearingY: 40
-      m_HorizontalAdvance: 12
+      m_HorizontalAdvance: 16.1
     m_GlyphRect:
       m_X: 96
       m_Y: 384
@@ -2468,9 +2468,9 @@ MonoBehaviour:
     m_Metrics:
       m_Width: 48
       m_Height: 48
-      m_HorizontalBearingX: -8.5
-      m_HorizontalBearingY: 40
-      m_HorizontalAdvance: 34
+      m_HorizontalBearingX: -4.21
+      m_HorizontalBearingY: 44.49
+      m_HorizontalAdvance: 31.6
     m_GlyphRect:
       m_X: 336
       m_Y: 192

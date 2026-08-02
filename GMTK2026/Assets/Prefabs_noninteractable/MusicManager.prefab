@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 7845159716631191352}
   - component: {fileID: 7845159716631191355}
   - component: {fileID: 7845159716631191353}
+  - component: {fileID: 543273071}
+  - component: {fileID: 543273072}
+  - component: {fileID: 543273073}
   m_Layer: 0
   m_Name: MusicManager
   m_TagString: Main Audio
@@ -41,7 +44,7 @@ AudioSource:
   m_GameObject: {fileID: 7845159716631191354}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 648540178787774095, guid: ecd1ed1f9e0d1924ebb33e434d6f5bd1, type: 2}
   m_audioClip: {fileID: 8300000, guid: 4c2a841222be33745b5d094f5ed81d9b, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.39
@@ -144,3 +147,40 @@ MonoBehaviour:
   last10secs: {fileID: 8300000, guid: 5f08ef837fe21fc4bb6d0a2ab071f466, type: 3}
   boom: {fileID: 8300000, guid: 2c4a4ac19f3daf64b95ca08ac13fa81d, type: 3}
   winSFX: {fileID: 8300000, guid: 07c2dec14a8894b4aa5093e67815d026, type: 3}
+--- !u!114 &543273071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7845159716631191354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b19f1c542670cd6489a5416764b7f435, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &543273072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7845159716631191354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baed06269afbe064ca0fd8b8b0f5f005, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixer: {fileID: 24100000, guid: ecd1ed1f9e0d1924ebb33e434d6f5bd1, type: 2}
+--- !u!114 &543273073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7845159716631191354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78e81d4617f089149908b42d5eeb6ca1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

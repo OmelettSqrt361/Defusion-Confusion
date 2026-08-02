@@ -4754,7 +4754,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   taskType: 0
-  playerNear: 0
+  closestInteractable: 0
   player: {fileID: 0}
   animator: {fileID: 0}
   b: {fileID: 0}
@@ -4763,6 +4763,8 @@ MonoBehaviour:
   taskCam: {fileID: 0}
   zoomCam: {fileID: 0}
   zoomButtons: []
+  hasTaskMenu: 0
+  taskMenuPrefab: {fileID: 0}
   taskMenu: {fileID: 2069771195}
   isRunning: 0
   isZoomed: 0
@@ -4774,10 +4776,13 @@ MonoBehaviour:
   - {fileID: 1274530789}
   activeTools: []
   noninteractable: 0
+  doorTask: 0
   audiosS: {fileID: 0}
   hasAudio: 0
   clip: {fileID: 0}
   noZoomingOut: 0
+  door: {fileID: 0}
+  taskCanvas: {fileID: 0}
 --- !u!4 &999889955
 Transform:
   m_ObjectHideFlags: 0
@@ -6256,7 +6261,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   taskType: 0
-  playerNear: 0
+  closestInteractable: 0
   player: {fileID: 0}
   animator: {fileID: 0}
   b: {fileID: 0}
@@ -6265,6 +6270,8 @@ MonoBehaviour:
   taskCam: {fileID: 0}
   zoomCam: {fileID: 0}
   zoomButtons: []
+  hasTaskMenu: 0
+  taskMenuPrefab: {fileID: 0}
   taskMenu: {fileID: 976194841}
   isRunning: 0
   isZoomed: 0
@@ -6272,10 +6279,13 @@ MonoBehaviour:
   toolsToActivate: []
   activeTools: []
   noninteractable: 0
+  doorTask: 0
   audiosS: {fileID: 0}
   hasAudio: 0
   clip: {fileID: 8300000, guid: f7e175e212c0e0d4aa3bb710ece256a5, type: 3}
   noZoomingOut: 0
+  door: {fileID: 0}
+  taskCanvas: {fileID: 0}
 --- !u!1 &1372212929
 GameObject:
   m_ObjectHideFlags: 0
@@ -6966,11 +6976,14 @@ MonoBehaviour:
   runVelocityIncrease: 2
   windupTime: 0.3
   itemsNear: []
+  tasksNear: []
   handLoc: {fileID: 846480020}
   item: {fileID: 0}
   attribute: 
   maxHoldBuffer: 0.1
-  taskNear: 0
+  maxTaskEndBuffer: 0
+  maxTaskStartBuffer: 0
+  taskStartBuffer: 0
   doingTask: 0
   pickup: {fileID: 8300000, guid: bac67204250ed0742bf75f67c12da419, type: 3}
   putDown: {fileID: 8300000, guid: 50bead117976b7b468311a0ae5a09c1b, type: 3}
@@ -7846,7 +7859,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1881739265}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -30.351326, y: -3.625073, z: 95.47946}
+  m_LocalPosition: {x: -30.34549, y: -3.625073, z: 95.47946}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2088707203}
@@ -8980,7 +8993,12 @@ MonoBehaviour:
   musicManager: {fileID: 0}
   hasNewSong: 1
   newSong: {fileID: 8300000, guid: a41bd894a6273d54281cadf1d5dfe711, type: 3}
+  songVolume: 0.2
   musicManagerFallback: {fileID: 7845159716631191354, guid: 3fd4d106ae36fb6439942047f07c77f4, type: 3}
+  itemColor: {r: 0, g: 0, b: 0, a: 0}
+  taskColor: {r: 0, g: 0, b: 0, a: 0}
+  bombColor: {r: 0, g: 0, b: 0, a: 0}
+  enableOutlines: 0
 --- !u!4 &2056183083
 Transform:
   m_ObjectHideFlags: 0
