@@ -11,13 +11,14 @@ public class Item : MonoBehaviour
     GameObject player;
 
     // propreties
-    public SpriteRenderer sr;
+    public SpriteMeshGrid sr;
     public string attribute;
     public Animator animator;
 
     void Update()
     {
         animator.SetBool("Near", closestInteractable);
+        sr = gameObject.GetComponentInChildren<SpriteMeshGrid>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -41,7 +42,7 @@ public class Item : MonoBehaviour
     public void ItemGrabbed()
     {
         held = true;
-        sr.sortingOrder = 0;
+        sr.sortingOrder = 1;
         animator.SetBool("Hold", true);
     }
 

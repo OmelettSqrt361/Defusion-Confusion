@@ -22,7 +22,7 @@ public class SettingsMenuUI : MonoBehaviour
     [Header("Graphics")]
     public TMP_Dropdown outlineThicknessDropdown;
     [Tooltip("Order must match the dropdown's Options list exactly")]
-    public float[] outlineThicknessPresets = { 1f, 2f, 4f, 6f }; // e.g. Thin, Medium, Thick, Extra Thick
+    public int[] outlineThicknessPresets = { 3, 5, 0}; // e.g. Thin, Medium, Thick, Extra Thick
     public Toggle wobbleToggle;
     public Toggle fullscreenToggle;
 

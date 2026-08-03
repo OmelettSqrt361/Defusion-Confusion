@@ -19,9 +19,10 @@ public class SpriteOutlineManager : MonoBehaviour
     }
 
     [Header("Global Settings")]
-    [Range(1, 10)]
-    [SerializeField] private int globalThickness = 1;
-    [SerializeField] private Material outlineMaterial; // Assign a material using Sprites/PixelPerfectOutlineWobble
+    [Range(0, 20)]
+    [SerializeField] private int globalThickness = 0;
+    [SerializeField] private Material outlineMaterial;// Assign a material using Sprites/PixelPerfectOutlineWobble
+    [SerializeField] private Material nooutlineMaterial;
 
     [Header("Wobble Settings")]
     [Tooltip("Sub-pixel offset in texels when a vertex moves. Keep small (0.2-0.6) for a subtle effect.")]
@@ -78,8 +79,15 @@ public class SpriteOutlineManager : MonoBehaviour
 
     public void ApplyOutlines()
     {
+        globalThickness = GraphicsSettingsManager.Instance.OutlineThickness;
+        bool hasWidth = GraphicsSettingsManager.Instance.OutlineThickness == 0;
         if (outlineMaterial == null) return;
         if (propertyBlock == null) propertyBlock = new MaterialPropertyBlock();
+
+        if (!GraphicsSettingsManager.Instance.WobbleEnabled)
+        {
+            wobbleAmountPx = 0;
+        }
 
         foreach (var target in outlineObjects)
         {
@@ -89,7 +97,15 @@ public class SpriteOutlineManager : MonoBehaviour
             if (mr == null) continue;
 
             // 1. Assign outline material to the MeshRenderer directly
-            if (mr.sharedMaterial != outlineMaterial)
+            if (mr.sharedMaterial != outlineMaterial && !hasWidth)
+            {
+                mr.sharedMaterial = outlineMaterial;
+            }
+            else if (mr.sharedMaterial != nooutlineMaterial && hasWidth)
+            {
+                mr.sharedMaterial = nooutlineMaterial;
+            }
+            else // fallback
             {
                 mr.sharedMaterial = outlineMaterial;
             }

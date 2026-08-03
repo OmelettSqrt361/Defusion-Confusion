@@ -3091,7 +3091,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 73.5
+  m_fontSize: 73.45
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -6072,10 +6072,7 @@ MonoBehaviour:
   sfxSlider: {fileID: 308970891}
   musicSlider: {fileID: 1921931951}
   outlineThicknessDropdown: {fileID: 1276282261}
-  outlineThicknessPresets:
-  - 3
-  - 5
-  - 0
+  outlineThicknessPresets: 0000000003000000050000000a000000
   wobbleToggle: {fileID: 1128659510}
   fullscreenToggle: {fileID: 2053924059}
   interactBindButton: {fileID: 492753884}
@@ -9796,6 +9793,12 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
+    - m_Text: <sprite name="n_3" tint="1"><sprite name="o_2" tint="1"><sprite name="n_3"
+        tint="1"><sprite name="e_3" tint="1">
+      m_Image: {fileID: 0}
+    - m_Text: <sprite name="t_1" tint="1"><sprite name="h_1" tint="1"><sprite name="i_2"
+        tint="1"><sprite name="n_2" tint="1">
+      m_Image: {fileID: 0}
     - m_Text: <sprite name="n_1" tint="1"><sprite name="o_1" tint="1"><sprite name="r_3"
         tint="1"><sprite name="m_2" tint="1"><sprite name="a_3" tint="1"><sprite
         name="l_1" tint="1">
@@ -9803,9 +9806,6 @@ MonoBehaviour:
     - m_Text: <sprite name="c_2" tint="1"><sprite name="h_1" tint="1"><sprite name="o_1"
         tint="1"><sprite name="n_1" tint="1"><sprite name="k_1" tint="1"><sprite
         name="y_3" tint="1">
-      m_Image: {fileID: 0}
-    - m_Text: <sprite name="n_3" tint="1"><sprite name="o_2" tint="1"><sprite name="n_3"
-        tint="1"><sprite name="e_3" tint="1">
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
@@ -15781,7 +15781,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7845159716631191354, guid: 3fd4d106ae36fb6439942047f07c77f4, type: 3}
       propertyPath: m_Name
-      value: MusicManager
+      value: SettingsAndMusic
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fd4d106ae36fb6439942047f07c77f4, type: 3}

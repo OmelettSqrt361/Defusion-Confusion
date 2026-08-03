@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 // Replaces a SpriteRenderer with a MeshFilter/MeshRenderer showing the same
 // sprite, but built as a subdivided grid instead of a single quad.
@@ -6,6 +7,11 @@ using UnityEngine;
 [ExecuteAlways]
 public class SpriteMeshGrid : MonoBehaviour
 {
+    // NOTE: keep this field named "sprite" — that's the serialized name
+    // every existing scene/prefab already stores its reference under.
+    // FormerlySerializedAs covers anything that got saved as "_sprite"
+    // during a previous version of this script.
+    [FormerlySerializedAs("_sprite")]
     [Tooltip("Sprite to build the grid mesh from")]
     public Sprite sprite;
 
@@ -47,6 +53,21 @@ public class SpriteMeshGrid : MonoBehaviour
     {
         EnsureMeshComponentsExist();
         Build();
+    }
+
+    private void LateUpdate()
+    {
+        // An Animator/Animation clip driving a Sprite curve writes straight
+        // into the serialized `sprite` field via reflection — that bypasses
+        // any C# property setter entirely, so polling is the only reliable
+        // way to catch it. LateUpdate runs after the Animator has applied
+        // this frame's curves. Build() itself is a cheap no-op when nothing
+        // changed, but we check first to skip the call entirely most frames.
+        if (sprite != null &&
+            (sprite != _builtFor || _builtCols != gridColumns || _builtRows != gridRows))
+        {
+            Build();
+        }
     }
 
     private void EnsureMeshComponentsExist()

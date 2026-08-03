@@ -19,7 +19,7 @@ public class GraphicsSettingsManager : MonoBehaviour
     private const string WobblePref = "Graphics_WobbleEnabled";
     private const string FullscreenPref = "Graphics_Fullscreen";
 
-    public float OutlineThickness { get; private set; } = 2f;
+    public int OutlineThickness { get; private set; } = 2;
     public bool WobbleEnabled { get; private set; } = true;
 
     private void Awake()
@@ -36,7 +36,7 @@ public class GraphicsSettingsManager : MonoBehaviour
 
     private void LoadAndApply()
     {
-        OutlineThickness = PlayerPrefs.GetFloat(OutlinePref, 2f);
+        OutlineThickness = PlayerPrefs.GetInt(OutlinePref);
         WobbleEnabled = PlayerPrefs.GetInt(WobblePref, 1) == 1;
 
         bool fullscreen = PlayerPrefs.GetInt(FullscreenPref, Screen.fullScreen ? 1 : 0) == 1;
@@ -44,10 +44,10 @@ public class GraphicsSettingsManager : MonoBehaviour
     }
 
     // Hook to your outline thickness slider (pick a min/max that suits your shader, e.g. 0-10)
-    public void SetOutlineThickness(float value)
+    public void SetOutlineThickness(int value)
     {
         OutlineThickness = value;
-        PlayerPrefs.SetFloat(OutlinePref, value);
+        PlayerPrefs.SetInt(OutlinePref, value);
         OnOutlineThicknessChanged?.Invoke(value);
     }
 
