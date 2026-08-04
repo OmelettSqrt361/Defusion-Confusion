@@ -14,10 +14,10 @@ public class Bomb : MonoBehaviour
     public int showTimer;
     float percent;
 
-
     // bomb menu
     public Slider slider;
     TextMeshProUGUI countDown;
+    [HideInInspector]
     public TextMeshProUGUI lCDScreen;
 
     // win conditions

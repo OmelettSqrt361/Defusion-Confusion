@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Wobble
   m_Shader: {fileID: 4800000, guid: 27ed0e91a6ec86442a76428dc5213f12, type: 3}
-  m_ShaderKeywords: 
+  m_ShaderKeywords: _DOSHADER_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -60,6 +60,7 @@ Material:
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
+    - _DoShader: 1
     - _DstBlend: 0
     - _GlossMapScale: 1
     - _Glossiness: 0.5
@@ -73,7 +74,7 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
-    - _WobbleAmountPx: 0.44
+    - _WobbleAmountPx: 0.51
     - _WobbleFPS: 4
     - _WobbleFrequency: 16.8
     - _WobbleProbability: 0.317

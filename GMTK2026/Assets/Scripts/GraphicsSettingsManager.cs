@@ -21,7 +21,7 @@ public class GraphicsSettingsManager : MonoBehaviour
     private const string WobblePref = "Graphics_WobbleEnabled";
     private const string FullscreenPref = "Graphics_Fullscreen";
 
-    public int OutlineThickness { get; private set; } = 2;
+    [SerializeField] public int OutlineThickness = 2;
     public bool WobbleEnabled { get; private set; } = true;
 
     private WobbleShaderToggle wobbleShaderToggle;

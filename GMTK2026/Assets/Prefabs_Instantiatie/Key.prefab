@@ -247,7 +247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 5155071074158098156, guid: 2209769b65209f94e9c6d0ce25dfef1f, type: 3}
-  material: {fileID: 2100000, guid: 8e93cd11de64dfe479a2c6336fdf685d, type: 2}
+  material: {fileID: 2100000, guid: e12e75648783db649bbabe911e3028a4, type: 2}
   gridColumns: 8
   gridRows: 8
   sortingLayerName: Default
@@ -279,7 +279,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8e93cd11de64dfe479a2c6336fdf685d, type: 2}
+  - {fileID: 2100000, guid: e12e75648783db649bbabe911e3028a4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

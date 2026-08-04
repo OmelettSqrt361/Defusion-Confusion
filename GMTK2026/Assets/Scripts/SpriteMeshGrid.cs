@@ -188,7 +188,7 @@ public class SpriteMeshGrid : MonoBehaviour
 
     public void ApplyRendererSettings()
     {
-        var mr = RendererComponent;
+        MeshRenderer mr = RendererComponent;
         if (mr == null) return;
 
         if (material != null && mr.sharedMaterial != material)

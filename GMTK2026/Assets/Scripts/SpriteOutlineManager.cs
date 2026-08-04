@@ -79,38 +79,44 @@ public class SpriteOutlineManager : MonoBehaviour
 
     public void ApplyOutlines()
     {
-        globalThickness = GraphicsSettingsManager.Instance.OutlineThickness;
-        bool hasWidth = GraphicsSettingsManager.Instance.OutlineThickness == 0;
+        bool hasWidth = true;
+        if (GraphicsSettingsManager.Instance != null)
+        {
+            globalThickness = GraphicsSettingsManager.Instance.OutlineThickness;
+            hasWidth = !(GraphicsSettingsManager.Instance.OutlineThickness == 0);
+        }
+
         if (outlineMaterial == null) return;
         if (propertyBlock == null) propertyBlock = new MaterialPropertyBlock();
-
-        if (!GraphicsSettingsManager.Instance.WobbleEnabled)
-        {
-            wobbleAmountPx = 0;
-
-        }
 
         foreach (var target in outlineObjects)
         {
             if (target.meshGrid == null) continue;
 
+            SpriteMeshGrid grid = target.meshGrid.gameObject.GetComponent<SpriteMeshGrid>();
             MeshRenderer mr = target.meshGrid.RendererComponent;
-            if (mr == null) continue;
+            if (mr == null)
+            {
+                Debug.Log($"{target.meshGrid.gameObject.name} doesn't have a mesh grid");
+                continue;
+            }
 
             // 1. Assign outline material to the MeshRenderer directly
-            if (mr.sharedMaterial != outlineMaterial && !hasWidth)
+            if (grid.material != outlineMaterial && hasWidth)
             {
-                mr.sharedMaterial = outlineMaterial;
-            }
-            else if (mr.sharedMaterial != nooutlineMaterial && hasWidth)
-            {
-                mr.sharedMaterial = nooutlineMaterial;
-            }
-            else // fallback
-            {
-                mr.sharedMaterial = outlineMaterial;
-            }
+                grid.material = outlineMaterial;
+                grid.ApplyRendererSettings();
 
+            } else if (mr.material != nooutlineMaterial && !hasWidth)
+            {
+                grid.material = nooutlineMaterial;
+                grid.ApplyRendererSettings();
+            }
+            else
+            {
+                Debug.Log("All Good");
+            }
+            
             // 2. Fetch block, assign both the sprite texture AND outline parameters together
             mr.GetPropertyBlock(propertyBlock);
 
