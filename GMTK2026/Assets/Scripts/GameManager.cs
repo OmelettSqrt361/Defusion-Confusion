@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     public sceneTypes sceneType;
 
     // gamplay stuff
-    public GameObject overlayMenu; // this should be tagged
+    public GameObject overlayMenu;
     public PlayerControler playerControler;
 
     // wins
@@ -36,15 +36,15 @@ public class GameManager : MonoBehaviour
     public int minimalBombTime;
 
     // ending
-    public GameObject deathScreen; // this should be tagged
-    public GameObject winScreen; // this should be tagged
+    public GameObject deathScreen;
+    public GameObject winScreen;
     public bool hasEnded;
     public bool notBegun;
     public bool won;
 
     // time measurement
     public float timer;
-    public TextMeshProUGUI timeText; // this should be tagged
+    public HandDrawnTextRenderer timeText;
 
     // level specifics
     public MusicManager musicManager;
@@ -72,7 +72,7 @@ public class GameManager : MonoBehaviour
             overlayMenu = GameObject.FindWithTag("Hideable Overlay");
             deathScreen = FindDisabledWithTag("Death Screen");
             winScreen = FindDisabledWithTag("Win Screen");
-            timeText = FindDisabledWithTag("Time Text").GetComponent<TextMeshProUGUI>();
+            timeText = FindDisabledWithTag("Time Text").GetComponent<HandDrawnTextRenderer>();
             som = gameObject.GetComponent<SpriteOutlineManager>();
         }
 
@@ -226,7 +226,8 @@ public class GameManager : MonoBehaviour
 
         // open win screen
         winScreen.SetActive(true);
-        timeText.text = $"Time: {Mathf.FloorToInt(timer / 60)}:" + (Mathf.FloorToInt(timer) % 60).ToString("D2") + $".{Mathf.FloorToInt(timer * 1000) % 1000}";
+        timeText.sourceText = $"Time: {Mathf.FloorToInt(timer / 60)}:" + (Mathf.FloorToInt(timer) % 60).ToString("D2") + $".{Mathf.FloorToInt(timer * 1000) % 1000}";
+        timeText.Refresh();
         Debug.Log($"{timer}");
         won = true;
     }

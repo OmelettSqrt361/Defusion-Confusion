@@ -94,8 +94,9 @@ public class UISpriteMeshGrid : Image
     }
 
     // Delay component swap by 1 frame so Unity finishes adding this script
-    private void Reset()
+    protected override void Reset()
     {
+        base.Reset();
         UnityEditor.EditorApplication.delayCall += ConvertFromImage;
     }
 

@@ -7,6 +7,7 @@ Shader "Sprites/Wobble"
         [MaterialToggle] PixelSnap ("Pixel snap", Float) = 0
 
         [Header(Wobble)]
+        [Toggle] _DoShader ("Do Shader", Float) = 1
         _WobbleAmountPx ("Wobble Amount (texels)", Range(0, 4)) = 0.4
         _WobbleFPS ("Wobble Frame Rate", Range(1, 24)) = 3
         _PixelsPerUnit ("Pixels Per Unit", Float) = 16
@@ -56,13 +57,20 @@ Shader "Sprites/Wobble"
 
             fixed4 _Color;
             sampler2D _MainTex;
+            float _DoShader;
 
             v2f vert(appdata_t IN)
             {
                 v2f OUT;
 
-                // Apply wobble displacement using Wobble.cginc
-                float4 localVertex = ApplyWobble(IN.vertex, IN.texcoord);
+                // Apply wobble displacement using Wobble.cginc, unless the
+                // effect has been toggled off, in which case use the vertex
+                // as-is (regular, non-wobbly sprite).
+                float4 localVertex = IN.vertex;
+                if (_DoShader > 0.5)
+                {
+                    localVertex = ApplyWobble(IN.vertex, IN.texcoord);
+                }
 
                 OUT.vertex = UnityObjectToClipPos(localVertex);
                 OUT.texcoord = IN.texcoord;

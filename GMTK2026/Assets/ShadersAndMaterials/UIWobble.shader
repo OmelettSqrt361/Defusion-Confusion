@@ -16,7 +16,8 @@ Shader "UI/Wobble"
         [Toggle(UNITY_UI_ALPHACLIP)] _UseUIAlphaClip ("Use Alpha Clip", Float) = 0
 
         [Header(Wobble)]
-        _WobbleAmountPx ("Wobble Amount (texels)", Range(0, 4)) = 0.4
+        [Toggle] _DoShader ("Do Shader", Float) = 1
+        _WobbleAmountPx ("Wobble Amount (texels)", Range(0, 50)) = 0.4
         _WobbleFPS ("Wobble Frame Rate", Range(1, 24)) = 3
         _PixelsPerUnit ("Pixels Per Unit", Float) = 16
         _WobbleFrequency ("Wobble Noise Frequency", Range(1, 100)) = 10
@@ -86,6 +87,7 @@ Shader "UI/Wobble"
             fixed4 _Color;
             sampler2D _MainTex;
             float4 _ClipRect;
+            float _DoShader;
 
             v2f vert(appdata_t IN)
             {
@@ -95,8 +97,13 @@ Shader "UI/Wobble"
 
                 // Apply wobble displacement in local space, same as the
                 // world-space sprite version, then feed the result into the
-                // standard UI clip-rect pipeline.
-                float4 localVertex = ApplyWobble(IN.vertex, IN.texcoord);
+                // standard UI clip-rect pipeline. Skipped entirely when the
+                // effect is toggled off.
+                float4 localVertex = IN.vertex;
+                if (_DoShader > 0.5)
+                {
+                    localVertex = ApplyWobble(IN.vertex, IN.texcoord);
+                }
 
                 OUT.worldPosition = localVertex;
                 OUT.vertex = UnityObjectToClipPos(OUT.worldPosition);

@@ -51,9 +51,25 @@ public class SpriteMeshGrid : MonoBehaviour
 
     private void OnValidate()
     {
+    #if UNITY_EDITOR
+        // EnsureMeshComponentsExist()/Build() can end up assignings
+        // MeshFilter.sharedMesh, which triggers SendMessage under the hood.
+        // That's illegal inside OnValidate, so push it to the next editor tick.
+        UnityEditor.EditorApplication.delayCall += DeferredValidate;
+    #else
+        EnsureMeshComponentsExist();
+        Build();
+    #endif
+    }
+
+    #if UNITY_EDITOR
+    private void DeferredValidate()
+    {
+        if (this == null) return; // object may have been destroyed/reloaded by then
         EnsureMeshComponentsExist();
         Build();
     }
+    #endif
 
     private void LateUpdate()
     {

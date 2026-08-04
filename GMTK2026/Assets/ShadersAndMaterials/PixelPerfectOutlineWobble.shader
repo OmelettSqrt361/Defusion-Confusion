@@ -9,6 +9,7 @@ Shader "Sprites/PixelPerfectOutlineWobble"
         [MaterialToggle] PixelSnap ("Pixel snap", Float) = 0
 
         [Header(Wobble)]
+        [Toggle] _DoShader ("Do Shader", Float) = 1
         _WobbleAmountPx ("Wobble Amount (texels)", Range(0, 4)) = 0.4
         _WobbleFPS ("Wobble Frame Rate", Range(1, 24)) = 3
         _PixelsPerUnit ("Pixels Per Unit", Float) = 16
@@ -62,6 +63,7 @@ Shader "Sprites/PixelPerfectOutlineWobble"
 
             fixed4 _OutlineColor;
             int _OutlineThickness;
+            float _DoShader;
 
             v2f vert(appdata_t IN)
             {
@@ -73,7 +75,13 @@ Shader "Sprites/PixelPerfectOutlineWobble"
                 // (_MainTex_TexelSize), never vertex position, so it can't
                 // "see" the wobble at all. That's what keeps outline thickness
                 // constant regardless of how the wobble moves this vertex.
-                float4 localVertex = ApplyWobble(IN.vertex, IN.texcoord);
+                // When the effect is toggled off, the vertex passes through
+                // unmodified.
+                float4 localVertex = IN.vertex;
+                if (_DoShader > 0.5)
+                {
+                    localVertex = ApplyWobble(IN.vertex, IN.texcoord);
+                }
 
                 OUT.vertex = UnityObjectToClipPos(localVertex);
                 OUT.texcoord = IN.texcoord;
@@ -89,6 +97,13 @@ Shader "Sprites/PixelPerfectOutlineWobble"
             fixed4 frag(v2f IN) : SV_Target
             {
                 fixed4 c = tex2D(_MainTex, IN.texcoord) * IN.color;
+
+                // If the effect is toggled off, skip the outline pass
+                // entirely and render a plain sprite.
+                if (_DoShader < 0.5)
+                {
+                    return c;
+                }
 
                 // 1. If pixel is already solid sprite artwork, return normal pixel
                 if (c.a > 0.1)

@@ -87,6 +87,7 @@ public class SpriteOutlineManager : MonoBehaviour
         if (!GraphicsSettingsManager.Instance.WobbleEnabled)
         {
             wobbleAmountPx = 0;
+
         }
 
         foreach (var target in outlineObjects)

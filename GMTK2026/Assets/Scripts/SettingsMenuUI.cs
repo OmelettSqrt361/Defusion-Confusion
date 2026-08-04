@@ -73,6 +73,7 @@ public class SettingsMenuUI : MonoBehaviour
         moveDownBindButton.onClick.AddListener(() => BeginRebind(KeyBindingManager.GameAction.MoveDown));
         moveLeftBindButton.onClick.AddListener(() => BeginRebind(KeyBindingManager.GameAction.MoveLeft));
         moveRightBindButton.onClick.AddListener(() => BeginRebind(KeyBindingManager.GameAction.MoveRight));
+
     }
 
     private void OnOutlineThicknessDropdownChanged(int index)

@@ -79,9 +79,9 @@ Material:
     - _StencilWriteMask: 255
     - _UVSec: 0
     - _UseUIAlphaClip: 0
-    - _WobbleAmountPx: 4
+    - _WobbleAmountPx: 11.5
     - _WobbleFPS: 4
-    - _WobbleFrequency: 96.4
+    - _WobbleFrequency: 100
     - _WobbleProbability: 0.914
     - _WobbleSnapToPixel: 0
     - _ZWrite: 1
