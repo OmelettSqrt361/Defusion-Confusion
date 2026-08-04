@@ -3,7 +3,11 @@
   "WorkspaceRootPath": "C:\\Users\\jk\\Coding\\games\\GMTK2026\\GMTK2026\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{182F3912-DDDC-C27A-C4A6-C513C73B2F7E}|Assembly-CSharp-Editor.csproj|c:\\users\\jk\\coding\\games\\gmtk2026\\gmtk2026\\assets\\editor\\gamemanagereditor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{182F3912-DDDC-C27A-C4A6-C513C73B2F7E}|Assembly-CSharp-Editor.csproj|C:\\Users\\jk\\Coding\\games\\GMTK2026\\GMTK2026\\assets\\editor\\tightenspriteglyphs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{182F3912-DDDC-C27A-C4A6-C513C73B2F7E}|Assembly-CSharp-Editor.csproj|solutionrelative:assets\\editor\\tightenspriteglyphs.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{182F3912-DDDC-C27A-C4A6-C513C73B2F7E}|Assembly-CSharp-Editor.csproj|C:\\Users\\jk\\Coding\\games\\GMTK2026\\GMTK2026\\assets\\editor\\gamemanagereditor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{182F3912-DDDC-C27A-C4A6-C513C73B2F7E}|Assembly-CSharp-Editor.csproj|solutionrelative:assets\\editor\\gamemanagereditor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -19,15 +23,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "TightenSpriteGlyphs.cs",
+              "DocumentMoniker": "C:\\Users\\jk\\Coding\\games\\GMTK2026\\GMTK2026\\Assets\\Editor\\TightenSpriteGlyphs.cs",
+              "RelativeDocumentMoniker": "Assets\\Editor\\TightenSpriteGlyphs.cs",
+              "ToolTip": "C:\\Users\\jk\\Coding\\games\\GMTK2026\\GMTK2026\\Assets\\Editor\\TightenSpriteGlyphs.cs",
+              "RelativeToolTip": "Assets\\Editor\\TightenSpriteGlyphs.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-04T18:00:31.485Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "GameManagerEditor.cs",
               "DocumentMoniker": "C:\\Users\\jk\\Coding\\games\\GMTK2026\\GMTK2026\\Assets\\Editor\\GameManagerEditor.cs",
               "RelativeDocumentMoniker": "Assets\\Editor\\GameManagerEditor.cs",
               "ToolTip": "C:\\Users\\jk\\Coding\\games\\GMTK2026\\GMTK2026\\Assets\\Editor\\GameManagerEditor.cs",
               "RelativeToolTip": "Assets\\Editor\\GameManagerEditor.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-04T10:30:08.701Z",
-              "EditorCaption": ""
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACySURBVDhPYxgFEHDjxY3/Xqvc/wtO5P1vvdji/40X1/9DpcBg3rm5cD4yGw6sF5v/bz7UAJZoAtIgw8ASUAAyGMpEYYMAI4gACb7P/wxmg4DuXM3/l5OvM4JsKz5cABVFBa6y7gyrgtZA9KCbig7wuYAJSpMNsBoA8gKIBnkBZiOIRmaHrQtBuMQTGGjNhxvBAk1AGhQTYAkoQHY2MhsOQNFotcgcbIPnSjfSo3FEAwYGAA95Yu3hOJS9AAAAAElFTkSuQmCC",
+              "WhenOpened": "2026-08-04T10:42:41.132Z"
             }
           ]
         }
