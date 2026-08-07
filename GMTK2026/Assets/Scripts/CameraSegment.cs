@@ -6,7 +6,12 @@ using UnityEngine;
 public class CameraSegment : MonoBehaviour
 {
     public bool isOn = false;
+    public int priority = 0;
+    public float camPull = 1f;
     List<Collider2D> oldResults = new List<Collider2D>();
+    public float overrideCamEdgePercent = -1f;
+    public PolygonCollider2D isOnBoundary;
+
 
     private void Start()
     {
@@ -19,9 +24,28 @@ public class CameraSegment : MonoBehaviour
             }
         );
 
-        CompositeCollider2D collider = GetComponent<CompositeCollider2D>();
-        ContactFilter2D filter = new ContactFilter2D().NoFilter();
+        UpdateIsOn();
+    }
+
+    private void FixedUpdate()
+    {
+        UpdateIsOn();
+    }
+
+    void UpdateIsOn()
+    {
+        Collider2D collider = isOnBoundary != null
+            ? (Collider2D)isOnBoundary
+            : GetComponent<CompositeCollider2D>();
+
+        if (collider == null)
+        {
+            Debug.LogWarning($"{name}: CameraSegment has no boundary collider assigned (isOnBoundary is null and no CompositeCollider2D found).", this);
+            return;
+        }
+
         List<Collider2D> results = new List<Collider2D>();
+        ContactFilter2D filter = new ContactFilter2D().NoFilter();
 
         collider.OverlapCollider(filter, results);
 
@@ -31,33 +55,8 @@ public class CameraSegment : MonoBehaviour
             if (collision.CompareTag("Player"))
             {
                 isOn = true;
-                return;
+                break;
             }
         }
-    }
-
-    private void FixedUpdate()
-    {
-        CompositeCollider2D collider = GetComponent<CompositeCollider2D>();
-        ContactFilter2D filter = new ContactFilter2D().NoFilter();
-        List<Collider2D> results = new List<Collider2D>();
-
-        collider.OverlapCollider(filter, results);
-        if (results != oldResults)
-        {
-            isOn = false;
-            foreach (Collider2D collision in results)
-            {
-                if (collision.CompareTag("Player"))
-                {
-                    isOn = true;
-                    continue;
-                }
-            }
-            oldResults = results;
-        }
-
-
-
     }
 }
